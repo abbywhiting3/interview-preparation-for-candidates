@@ -6,88 +6,82 @@
   <title>Interview Ready | Your Guide to a Confident Interview</title>
   <style>
     :root {
-      --primary: #1a1a2e;
-      --accent: #e94560;
-      --accent-light: #ff6b81;
-      --gold: #f5c518;
-      --bg: #0f0f23;
-      --card-bg: #1a1a2e;
-      --text: #e0e0e0;
-      --text-muted: #a0a0b0;
-      --border: #2a2a4a;
-      --success: #00d2d3;
+      --primary: #1a1a2e; --accent: #e94560; --accent-light: #ff6b81;
+      --gold: #f5c518; --bg: #0f0f23; --card-bg: #1a1a2e;
+      --text: #e0e0e0; --text-muted: #a0a0b0; --border: #2a2a4a;
       --gradient: linear-gradient(135deg, #e94560, #f5c518);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
-    nav {
+    /* HEADER */
+    header {
       position: fixed; top: 0; width: 100%; z-index: 100;
-      background: rgba(15,15,35,0.95); backdrop-filter: blur(10px);
+      background: rgba(15,15,35,0.97); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;
     }
-    nav .logo { font-size: 1.4rem; font-weight: 800; }
-    nav .logo span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    nav ul { list-style: none; display: flex; gap: 2rem; }
-    nav ul li a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.3s; }
-    nav ul li a:hover { color: var(--accent); }
-    .hero {
-      margin-top: 60px; padding: 5rem 2rem 3rem; text-align: center;
-      background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
-      position: relative; overflow: hidden;
+    .header-top { padding: 1rem 2rem 0.25rem; }
+    .header-top .logo { font-size: 1.6rem; font-weight: 900; }
+    .header-top .logo span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    /* NAV TABS WITH DROPDOWNS */
+    .nav-tabs { display: flex; gap: 0; padding: 0 2rem; border-top: 1px solid var(--border); }
+    .nav-item { position: relative; }
+    .nav-item > a {
+      display: block; padding: 0.75rem 1.5rem; color: var(--text-muted); text-decoration: none;
+      font-weight: 600; font-size: 0.95rem; border-bottom: 3px solid transparent; transition: all 0.3s;
     }
-    .hero::before {
-      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(233,69,96,0.08) 0%, transparent 50%);
-      animation: pulse 8s ease-in-out infinite;
+    .nav-item > a:hover, .nav-item > a.active { color: #fff; border-bottom-color: var(--accent); }
+    .nav-dropdown {
+      display: none; position: absolute; top: 100%; left: 0; min-width: 220px;
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: 0 0 12px 12px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.4); z-index: 200; padding: 0.5rem 0;
     }
+    .nav-item:hover .nav-dropdown { display: block; }
+    .nav-dropdown a {
+      display: block; padding: 0.6rem 1.25rem; color: var(--text-muted); text-decoration: none;
+      font-size: 0.9rem; font-weight: 500; transition: all 0.2s;
+    }
+    .nav-dropdown a:hover { background: rgba(233,69,96,0.1); color: var(--accent); }
+    .nav-dropdown .dd-header { padding: 0.5rem 1.25rem 0.25rem; color: var(--accent); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+    .nav-dropdown hr { border: none; border-top: 1px solid var(--border); margin: 0.4rem 0; }
+    /* PAGES */
+    .page { display: none; padding-top: 100px; }
+    .page.active { display: block; }
+    /* HERO */
+    .hero { padding: 5rem 2rem 3rem; text-align: center; background: linear-gradient(135deg, #0f0f23, #1a1a2e, #16213e); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(233,69,96,0.08) 0%, transparent 50%); animation: pulse 8s ease-in-out infinite; }
     @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1); } }
     .hero h1 { font-size: 3.2rem; font-weight: 900; margin-bottom: 1rem; position: relative; }
     .hero h1 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 650px; margin: 0 auto; position: relative; }
     .hero .badge { display: inline-block; background: var(--accent); color: #fff; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem; margin-bottom: 1.5rem; position: relative; }
-    /* OVERVIEW */
-    .overview { max-width: 800px; margin: 0 auto; padding: 3rem 2rem; text-align: center; }
-    .overview h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; }
-    .overview h2 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .overview p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; }
-    /* POSITION SELECTOR */
-    .pos-selector { max-width: 1000px; margin: 0 auto; padding: 2rem 2rem 4rem; }
-    .pos-selector h2 { font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 0.5rem; }
-    .pos-selector h2 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .pos-selector .subtitle { text-align: center; color: var(--text-muted); margin-bottom: 2.5rem; font-size: 1.05rem; }
+    /* SECTIONS */
+    .section-wrap { max-width: 1000px; margin: 0 auto; padding: 3rem 2rem; }
+    .section-wrap h2 { font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .section-wrap h2 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .section-wrap .subtitle { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.05rem; }
+    .divider { width: 60px; height: 4px; background: var(--gradient); border-radius: 2px; margin-bottom: 2rem; }
+    /* CLIENT CARDS */
+    .client-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+    .client-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; text-align: center; transition: transform 0.3s, border-color 0.3s; }
+    .client-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .client-card .c-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .client-card h3 { font-size: 1.2rem; color: #fff; margin-bottom: 0.5rem; }
+    .client-card p { color: var(--text-muted); font-size: 0.9rem; }
+    /* POSITION CARDS */
     .pos-categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .pos-category {
-      background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px;
-      padding: 2rem; position: relative; transition: border-color 0.3s, transform 0.3s;
-    }
+    .pos-category { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: border-color 0.3s, transform 0.3s; }
     .pos-category:hover { border-color: var(--accent); transform: translateY(-4px); }
     .pos-category .cat-icon { font-size: 2.5rem; margin-bottom: 1rem; }
     .pos-category h3 { font-size: 1.3rem; color: #fff; margin-bottom: 0.5rem; font-weight: 700; }
     .pos-category > p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem; }
-    .sub-list { display: none; flex-direction: column; gap: 0; }
+    .sub-list { display: none; flex-direction: column; }
     .pos-category:hover .sub-list { display: flex; }
-    .sub-list a {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0.75rem 1rem; color: var(--text); text-decoration: none;
-      border-radius: 10px; transition: background 0.2s, color 0.2s; font-weight: 500;
-    }
+    .sub-list a { display: flex; align-items: center; justify-content: space-between; padding: 0.6rem 1rem; color: var(--text); text-decoration: none; border-radius: 10px; transition: background 0.2s; font-weight: 500; cursor: pointer; }
     .sub-list a:hover { background: rgba(233,69,96,0.12); color: var(--accent); }
-    .sub-list a .arrow-r { color: var(--accent); opacity: 0; transition: opacity 0.2s, transform 0.2s; }
-    .sub-list a:hover .arrow-r { opacity: 1; transform: translateX(4px); }
-    /* SECTIONS */
-    section { padding: 4rem 2rem; max-width: 1000px; margin: 0 auto; }
-    section h2 { font-size: 2.2rem; margin-bottom: 0.5rem; font-weight: 800; }
-    section h2 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    section .subtitle { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.1rem; }
-    .divider { width: 60px; height: 4px; background: var(--gradient); border-radius: 2px; margin-bottom: 2rem; }
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: transform 0.3s, border-color 0.3s; }
-    .card:hover { transform: translateY(-4px); border-color: var(--accent); }
-    .card .icon { font-size: 2rem; margin-bottom: 1rem; }
-    .card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #fff; }
-    .card p { color: var(--text-muted); font-size: 0.95rem; }
+    .sub-list a .ar { color: var(--accent); opacity: 0; transition: opacity 0.2s; }
+    .sub-list a:hover .ar { opacity: 1; }
+    /* STAR */
     .star-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
     .star-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; text-align: center; }
     .star-card .letter { font-size: 4rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
@@ -97,10 +91,11 @@
     .star-example h3 { color: var(--accent); margin-bottom: 1rem; }
     .star-example .step { margin-bottom: 1rem; }
     .star-example .step strong { color: var(--gold); }
+    /* QA */
     .qa-item { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 1rem; overflow: hidden; }
     .qa-question { padding: 1.25rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #fff; transition: background 0.3s; }
     .qa-question:hover { background: rgba(233,69,96,0.05); }
-    .qa-question .arrow { transition: transform 0.3s; color: var(--accent); font-size: 1.2rem; }
+    .qa-question .arrow { transition: transform 0.3s; color: var(--accent); }
     .qa-question.active .arrow { transform: rotate(180deg); }
     .qa-answer { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
     .qa-answer.open { max-height: 600px; padding: 0 1.5rem 1.5rem; }
@@ -109,285 +104,215 @@
     .qa-answer .tip strong { color: var(--accent); }
     .content-section { display: none; }
     .content-section.active { display: block; }
-    .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent); text-decoration: none; font-weight: 600; margin-bottom: 1.5rem; cursor: pointer; background: none; border: none; font-size: 1rem; }
+    .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent); font-weight: 600; cursor: pointer; background: none; border: none; font-size: 1rem; margin-bottom: 1.5rem; }
     .back-btn:hover { color: var(--accent-light); }
     footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--border); color: var(--text-muted); }
-    @media (max-width: 768px) {
-      nav ul { display: none; }
-      .hero h1 { font-size: 2.2rem; }
-      .pos-categories { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 768px) { .nav-tabs { overflow-x: auto; } .hero h1 { font-size: 2.2rem; } .pos-categories { grid-template-columns: 1fr; } .client-grid { grid-template-columns: 1fr 1fr; } }
   </style>
 </head>
 <body>
 
-  <nav>
-    <div class="logo"><span>Interview Ready</span></div>
-    <ul>
-      <li><a href="#positions">Positions</a></li>
-      <li><a href="#star">STAR Method</a></li>
-      <li><a href="#tips">Quick Tips</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <div class="hero">
-    <div class="badge">Free Candidate Resource</div>
-    <h1>We're Here to Help You <span>Succeed</span></h1>
-    <p>Practical interview guidance built for legal and financial professionals. Select your position, explore common questions, and walk into your next interview with confidence.</p>
-  </div>
-
-  <!-- BRIEF OVERVIEW -->
-  <div class="overview">
-    <h2>How This <span>Works</span></h2>
-    <p>This guide is designed to help you prepare for interviews across legal and financial services. Start by selecting your position type below. Each category contains role-specific questions interviewers commonly ask, along with expert tips on how to structure strong answers using the STAR method. Whether you are an experienced attorney, a paralegal, or a financial professional, we have tailored guidance to help you put your best foot forward.</p>
-  </div>
-
-  <!-- POSITION SELECTOR -->
-  <div class="pos-selector" id="positions">
-    <h2>Select Your <span>Position</span></h2>
-    <p class="subtitle">Hover over a category to see available roles, then click to view interview questions and answer guidance.</p>
-    <div class="pos-categories">
-
-      <div class="pos-category">
-        <div class="cat-icon">&#9878;</div>
-        <h3>Attorneys</h3>
-        <p>Interview prep for practicing attorneys across all major practice areas.</p>
-        <div class="sub-list">
-          <a onclick="showSection('attorney-general')"><span>General Attorney</span><span class="arrow-r">&rarr;</span></a>
-          <a onclick="showSection('insurance')"><span>Insurance Defense</span><span class="arrow-r">&rarr;</span></a>
-          <a onclick="showSection('realestate')"><span>Real Estate</span><span class="arrow-r">&rarr;</span></a>
-          <a onclick="showSection('workcomp')"><span>Workers' Compensation</span><span class="arrow-r">&rarr;</span></a>
-          <a onclick="showSection('family')"><span>Family Law</span><span class="arrow-r">&rarr;</span></a>
-          <a onclick="showSection('corporate')"><span>Corporate / Transactional</span><span class="arrow-r">&rarr;</span></a>
+  <!-- HEADER -->
+  <header>
+    <div class="header-top"><div class="logo"><span>Interview Ready</span></div></div>
+    <div class="nav-tabs">
+      <div class="nav-item"><a href="#" class="active" onclick="goPage('home',this)">Home</a></div>
+      <div class="nav-item">
+        <a href="#" onclick="goPage('positions',this)">Positions &#9662;</a>
+        <div class="nav-dropdown">
+          <div class="dd-header">Attorneys</div>
+          <a onclick="goPos('attorney-general')">General Attorney</a>
+          <a onclick="goPos('insurance')">Insurance Defense</a>
+          <a onclick="goPos('realestate')">Real Estate</a>
+          <a onclick="goPos('workcomp')">Workers' Compensation</a>
+          <a onclick="goPos('family')">Family Law</a>
+          <a onclick="goPos('corporate')">Corporate / Transactional</a>
+          <hr>
+          <div class="dd-header">Legal Support Staff</div>
+          <a onclick="goPos('paralegal')">Paralegals</a>
+          <a onclick="goPos('legalasst')">Legal Assistants</a>
+          <a onclick="goPos('legalsec')">Legal Secretaries</a>
+          <hr>
+          <div class="dd-header">Financial Services</div>
+          <a onclick="goPos('finance-general')">General Finance</a>
+          <a onclick="goPos('compliance')">Compliance</a>
+          <a onclick="goPos('accounting')">Accounting</a>
         </div>
       </div>
-
-      <div class="pos-category">
-        <div class="cat-icon">&#128221;</div>
-        <h3>Legal Support Staff</h3>
-        <p>Tailored guidance for paralegals, legal assistants, and legal secretaries.</p>
-        <div class="sub-list">
-          <a onclick="showSection('paralegal')"><span>Paralegals</span><span class="arrow-r">&rarr;</span></a>
-          <a onclick="showSection('legalasst')"><span>Legal Assistants</span><span class="arrow-r">&rarr;</span></a>
-          <a onclick="showSection('legalsec')"><span>Legal Secretaries</span><span class="arrow-r">&rarr;</span></a>
+      <div class="nav-item">
+        <a href="#" onclick="goPage('star',this)">STAR Method &#9662;</a>
+        <div class="nav-dropdown">
+          <a onclick="goPage('star',document.querySelector('[onclick*=star]'))">Overview</a>
+          <a onclick="goPage('star',document.querySelector('[onclick*=star]'));setTimeout(()=>document.getElementById('star-example').scrollIntoView({behavior:'smooth'}),100)">Attorney Example</a>
         </div>
       </div>
+    </div>
+  </header>
 
-      <div class="pos-category">
-        <div class="cat-icon">&#128200;</div>
-        <h3>Financial Services</h3>
-        <p>Interview prep for compliance, accounting, advisory, and financial analyst roles.</p>
-        <div class="sub-list">
-          <a onclick="showSection('finance-general')"><span>General Finance</span><span class="arrow-r">&rarr;</span></a>
-          <a onclick="showSection('compliance')"><span>Compliance</span><span class="arrow-r">&rarr;</span></a>
-          <a onclick="showSection('accounting')"><span>Accounting</span><span class="arrow-r">&rarr;</span></a>
+  <!-- HOME PAGE -->
+  <div id="page-home" class="page active">
+    <div class="hero">
+      <div class="badge">Free Candidate Resource</div>
+      <h1>We're Here to Help You <span>Succeed</span></h1>
+      <p>Practical interview guidance built for legal and financial professionals. Select your position, explore common questions, and walk into your next interview with confidence.</p>
+    </div>
+    <div class="section-wrap">
+      <div class="divider"></div>
+      <h2>How This <span>Works</span></h2>
+      <p class="subtitle">This guide is designed to help you prepare for interviews across multiple industries. Start by selecting your position type from the Positions tab above. Each category contains role-specific questions interviewers commonly ask, along with expert tips on how to structure strong answers using the STAR method.</p>
+    </div>
+    <div class="section-wrap" style="padding-top:0;">
+      <div class="divider"></div>
+      <h2>Industries <span>We Serve</span></h2>
+      <p class="subtitle">Our firm partners with clients across these industries to place top talent.</p>
+      <div class="client-grid">
+        <div class="client-card">
+          <div class="c-icon">&#9878;</div>
+          <h3>Law Firms</h3>
+          <p>From boutique practices to AmLaw firms, we place attorneys, paralegals, legal assistants, and secretaries across all practice areas.</p>
+        </div>
+        <div class="client-card">
+          <div class="c-icon">&#128200;</div>
+          <h3>CPA Firms</h3>
+          <p>We staff accounting professionals for public and private CPA firms, from staff accountants through partners and advisory roles.</p>
+        </div>
+        <div class="client-card">
+          <div class="c-icon">&#128736;</div>
+          <h3>Engineering</h3>
+          <p>We connect engineering firms with civil, mechanical, electrical, and structural talent for project-based and permanent placements.</p>
+        </div>
+        <div class="client-card">
+          <div class="c-icon">&#128161;</div>
+          <h3>Marketing</h3>
+          <p>We recruit marketing strategists, content creators, digital specialists, and brand managers for agencies and in-house teams.</p>
         </div>
       </div>
-
     </div>
   </div>
 
-  <!-- Q&A CONTENT SECTIONS -->
-  <div id="qa-container" style="max-width:1000px; margin:0 auto; padding:0 2rem;">
-
-    <!-- GENERAL ATTORNEY -->
-    <div id="sec-attorney-general" class="content-section">
-      <button class="back-btn" onclick="hideSection()">&larr; Back to Positions</button>
+  <!-- POSITIONS PAGE -->
+  <div id="page-positions" class="page">
+    <div class="section-wrap" style="padding-top:120px;">
       <div class="divider"></div>
-      <h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">General <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Attorney</span> Questions</h2>
-      <p class="subtitle">Common questions asked in attorney interviews across practice areas.</p>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Why did you choose to practice law in this specific area? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Connect your answer to a genuine interest or formative experience. Reference specific cases, coursework, or mentors that drew you to the practice area.</p><div class="tip"><strong>Tip:</strong> Avoid generic answers. Mention a specific moment or experience that ignited your passion.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you manage a heavy caseload and competing deadlines? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Describe your organizational system: calendaring tools, task prioritization, and how you communicate with partners about bandwidth.</p><div class="tip"><strong>Tip:</strong> Mention specific tools like practice management software or docketing systems.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Tell me about a difficult opposing counsel situation and how you handled it. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Use the STAR method. Focus on professionalism, de-escalation, and keeping the client's best interest front and center.</p><div class="tip"><strong>Tip:</strong> Never badmouth opposing counsel. Frame the difficulty around the situation, not the person.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What is your approach to client development and business generation? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Discuss networking, industry involvement, writing or speaking engagements, and maintaining referral relationships.</p><div class="tip"><strong>Tip:</strong> Even junior attorneys should show awareness of business development through bar associations, CLEs, or community involvement.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Describe a time you made an error on a case. What happened? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Be honest but strategic. Choose a real but recoverable mistake. Walk through what happened, how you addressed it, and safeguards you put in place.</p><div class="tip"><strong>Tip:</strong> Firms value self-awareness and accountability.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Why are you looking to leave your current firm? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Frame your answer around what you are moving toward, not what you are running from. Talk about growth, practice area alignment, or culture fit.</p><div class="tip"><strong>Tip:</strong> Never speak negatively about your current employer.</div></div></div>
+      <h2>Select Your <span>Position</span></h2>
+      <p class="subtitle">Hover over a category to see roles, then click one to view interview questions.</p>
+      <div class="pos-categories">
+        <div class="pos-category">
+          <div class="cat-icon">&#9878;</div><h3>Attorneys</h3>
+          <p>All major practice areas.</p>
+          <div class="sub-list">
+            <a onclick="showQA('attorney-general')"><span>General Attorney</span><span class="ar">&rarr;</span></a>
+            <a onclick="showQA('insurance')"><span>Insurance Defense</span><span class="ar">&rarr;</span></a>
+            <a onclick="showQA('realestate')"><span>Real Estate</span><span class="ar">&rarr;</span></a>
+            <a onclick="showQA('workcomp')"><span>Workers' Comp</span><span class="ar">&rarr;</span></a>
+            <a onclick="showQA('family')"><span>Family Law</span><span class="ar">&rarr;</span></a>
+            <a onclick="showQA('corporate')"><span>Corporate / Transactional</span><span class="ar">&rarr;</span></a>
+          </div>
+        </div>
+        <div class="pos-category">
+          <div class="cat-icon">&#128221;</div><h3>Legal Support Staff</h3>
+          <p>Paralegals, assistants, and secretaries.</p>
+          <div class="sub-list">
+            <a onclick="showQA('paralegal')"><span>Paralegals</span><span class="ar">&rarr;</span></a>
+            <a onclick="showQA('legalasst')"><span>Legal Assistants</span><span class="ar">&rarr;</span></a>
+            <a onclick="showQA('legalsec')"><span>Legal Secretaries</span><span class="ar">&rarr;</span></a>
+          </div>
+        </div>
+        <div class="pos-category">
+          <div class="cat-icon">&#128200;</div><h3>Financial Services</h3>
+          <p>Finance, compliance, and accounting.</p>
+          <div class="sub-list">
+            <a onclick="showQA('finance-general')"><span>General Finance</span><span class="ar">&rarr;</span></a>
+            <a onclick="showQA('compliance')"><span>Compliance</span><span class="ar">&rarr;</span></a>
+            <a onclick="showQA('accounting')"><span>Accounting</span><span class="ar">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <!-- INSURANCE DEFENSE -->
-    <div id="sec-insurance" class="content-section">
-      <button class="back-btn" onclick="hideSection()">&larr; Back to Positions</button>
-      <div class="divider"></div>
-      <h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">Insurance <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Defense</span> Questions</h2>
-      <p class="subtitle">Questions commonly asked when interviewing for insurance defense attorney roles.</p>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What is your experience defending insurance carriers and their insureds? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Detail the types of carriers, lines of coverage (auto, CGL, professional liability), and your role from coverage analysis through trial.</p><div class="tip"><strong>Tip:</strong> Name specific carrier clients if allowed. Hiring partners want to gauge alignment with their book.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you handle billing guidelines and litigation management requirements? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Discuss familiarity with carrier billing guidelines, rate caps, task-based billing codes, and litigation plans.</p><div class="tip"><strong>Tip:</strong> Carriers care about cost-efficient defense, not just legal wins. Show you understand the business side.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Describe your experience with coverage analysis and reservation of rights letters. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Walk through your process for reviewing a policy, identifying coverage issues, and communicating with the carrier.</p><div class="tip"><strong>Tip:</strong> If you have experience with both coverage opinions and defense work, highlight that dual perspective.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you evaluate a case for early resolution vs. trial? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Explain your framework: liability exposure, damages assessment, litigation costs, policy limits, and the insured's risk appetite.</p><div class="tip"><strong>Tip:</strong> Demonstrate strategic thinking about total cost of defense.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Tell me about your deposition and trial experience. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Quantify: depositions taken/defended, mediations, trials. Describe your approach to witness prep and cross-examination.</p><div class="tip"><strong>Tip:</strong> Be specific with numbers. 50+ depositions is more impactful than "significant experience."</div></div></div>
-    </div>
-
-    <!-- REAL ESTATE -->
-    <div id="sec-realestate" class="content-section">
-      <button class="back-btn" onclick="hideSection()">&larr; Back to Positions</button>
-      <div class="divider"></div>
-      <h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">Real Estate <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Attorney</span> Questions</h2>
-      <p class="subtitle">Questions for commercial and transactional real estate attorney roles.</p>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What types of real estate transactions have you handled? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Break down by type: commercial acquisitions, leasing, financing, development, residential closings. Mention deal sizes.</p><div class="tip"><strong>Tip:</strong> Quantify your deals. $50M+ in transactions carries weight.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you approach due diligence on a commercial deal? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Walk through: title review, survey analysis, environmental reports, zoning, lease abstracts, estoppels, entity formation.</p><div class="tip"><strong>Tip:</strong> Show you are systematic. Missed due diligence issues can kill deals.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Describe a deal that hit a major obstacle. How did you handle it? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Use STAR. Describe the issue (title defect, environmental, financing failure) and how you found solutions.</p><div class="tip"><strong>Tip:</strong> Partners want attorneys who find solutions, not just flag problems.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What is your experience with commercial lease negotiations? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Describe landlord vs. tenant representation, key provisions: rent escalations, CAM, assignment, renewal options, TI allowances.</p><div class="tip"><strong>Tip:</strong> If you have represented both sides, highlight the strategic advantage.</div></div></div>
-    </div>
-
-    <!-- WORKERS COMP -->
-    <div id="sec-workcomp" class="content-section">
-      <button class="back-btn" onclick="hideSection()">&larr; Back to Positions</button>
-      <div class="divider"></div>
-      <h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">Workers' <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Compensation</span> Questions</h2>
-      <p class="subtitle">Common questions for workers' compensation attorney interviews.</p>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Do you primarily represent claimants, employers, or carriers? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Clearly state your side and typical caseload. If dual-side experience, discuss how it gives insight into opposing strategies.</p><div class="tip"><strong>Tip:</strong> Workers' comp firms are often side-specific. Be clear about your experience.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you handle a disputed claim where the employer denies the injury is work-related? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Describe evidence gathering: medical records, witness statements, job descriptions, surveillance, IME coordination.</p><div class="tip"><strong>Tip:</strong> Show your knowledge of the administrative hearing process.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What is your experience with Medicare Set-Asides and settlement structures? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Discuss MSA allocations, CMS submissions, and structured settlements.</p><div class="tip"><strong>Tip:</strong> MSA knowledge is increasingly valuable. Highlight direct CMS experience.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Describe your hearing experience before the workers' comp board. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Quantify appearances. Describe hearing types: TTD, PPD, vocational rehab disputes, settlement approvals.</p><div class="tip"><strong>Tip:</strong> Workers' comp is a volume practice. High hearing counts show you can handle the pace.</div></div></div>
-    </div>
-
-    <!-- FAMILY LAW -->
-    <div id="sec-family" class="content-section">
-      <button class="back-btn" onclick="hideSection()">&larr; Back to Positions</button>
-      <div class="divider"></div>
-      <h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">Family <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Law</span> Questions</h2>
-      <p class="subtitle">Questions for family law attorney interviews.</p>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you handle high-conflict custody disputes? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Discuss managing emotional clients, working with guardians ad litem, and presenting best-interests evidence.</p><div class="tip"><strong>Tip:</strong> Demonstrate emotional intelligence. Firms want attorneys who manage emotions while staying strategic.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What is your experience with complex asset division? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Detail experience with business valuations, QDROs, stock options, hidden asset investigations, and forensic accountants.</p><div class="tip"><strong>Tip:</strong> High-net-worth work requires financial literacy. Show you can work with numbers.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you approach settlement negotiations in family law? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Explain mediation experience, collaborative law training, and how you prepare clients for realistic outcomes.</p><div class="tip"><strong>Tip:</strong> Courts favor settlement. Show you are a skilled negotiator, not just a litigator.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Describe a case involving an order of protection. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Walk through emergency petitions, evidentiary hearings, witness prep, and impact on related proceedings.</p><div class="tip"><strong>Tip:</strong> These cases involve safety. Show you take them seriously and act quickly.</div></div></div>
-    </div>
-
-    <!-- CORPORATE -->
-    <div id="sec-corporate" class="content-section">
-      <button class="back-btn" onclick="hideSection()">&larr; Back to Positions</button>
-      <div class="divider"></div>
-      <h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">Corporate / <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Transactional</span> Questions</h2>
-      <p class="subtitle">Questions for corporate and transactional attorney roles.</p>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What types of transactions have you worked on? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Detail M&A, private equity, venture capital, or general corporate experience. Specify deal sizes and your level of responsibility.</p><div class="tip"><strong>Tip:</strong> Be clear: did you draft the purchase agreement or review ancillary documents? Honesty builds credibility.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you manage multiple closings simultaneously? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Describe project management: closing checklists, signature pages, escrow coordination, and multi-party communication.</p><div class="tip"><strong>Tip:</strong> Transactional work is about execution. Show you are organized and calm under pressure.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Walk me through negotiating a key provision in a purchase agreement. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Pick one you know well (indemnification, reps and warranties, earnouts) and explain your approach to risk allocation.</p><div class="tip"><strong>Tip:</strong> This tests technical depth. Pick something you have actually negotiated.</div></div></div>
-    </div>
-
-    <!-- PARALEGAL -->
-    <div id="sec-paralegal" class="content-section">
-      <button class="back-btn" onclick="hideSection()">&larr; Back to Positions</button>
-      <div class="divider"></div>
-      <h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;"><span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Paralegal</span> Questions</h2>
-      <p class="subtitle">Common interview questions for paralegal candidates.</p>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What types of cases have you supported and what was your role? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Walk through your experience: drafting discovery, managing document review, coordinating depositions, filing motions, maintaining case calendars.</p><div class="tip"><strong>Tip:</strong> Be specific about volume. Managing a 50,000-document production is more impactful than "document review."</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you prioritize tasks when multiple attorneys need help simultaneously? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Explain your approach: checking deadlines, distinguishing court dates from internal deadlines, keeping attorneys informed about bandwidth.</p><div class="tip"><strong>Tip:</strong> Show you are proactive about managing expectations.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What legal software and technology are you proficient in? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>List platforms: Westlaw, LexisNexis, Relativity, NetDocuments, Clio, iManage. Mention e-filing and certifications.</p><div class="tip"><strong>Tip:</strong> If unfamiliar with a specific tool, emphasize how quickly you learn with a concrete example.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Describe a time you caught an error that could have affected a case. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Use STAR. Describe what you found, the potential impact, how you flagged it, and the result.</p><div class="tip"><strong>Tip:</strong> Paralegals are the last line of defense on details. This story should prove it.</div></div></div>
-    </div>
-
-    <!-- LEGAL ASSISTANT -->
-    <div id="sec-legalasst" class="content-section">
-      <button class="back-btn" onclick="hideSection()">&larr; Back to Positions</button>
-      <div class="divider"></div>
-      <h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">Legal <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Assistant</span> Questions</h2>
-      <p class="subtitle">Interview questions for legal assistant roles.</p>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What administrative and legal support tasks are you most experienced with? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Cover calendar management, correspondence drafting, filing (electronic and physical), client intake, and expense processing.</p><div class="tip"><strong>Tip:</strong> Show range. Legal assistants who handle both admin and substantive tasks are highly valued.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you handle confidential client information? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Explain your understanding of attorney-client privilege, secure document handling, and your habits around data security.</p><div class="tip"><strong>Tip:</strong> Mention specific practices: locking workstations, secure shredding, encrypted email.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Describe a time you had to manage an urgent, last-minute request from an attorney. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Use STAR. Show how you stayed calm, reprioritized, communicated with affected parties, and delivered.</p><div class="tip"><strong>Tip:</strong> Legal work is deadline-driven. Show you thrive under pressure.</div></div></div>
-    </div>
-
-    <!-- LEGAL SECRETARY -->
-    <div id="sec-legalsec" class="content-section">
-      <button class="back-btn" onclick="hideSection()">&larr; Back to Positions</button>
-      <div class="divider"></div>
-      <h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">Legal <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Secretary</span> Questions</h2>
-      <p class="subtitle">Interview questions for legal secretary positions.</p>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What document management systems and legal formatting standards are you familiar with? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>List systems (iManage, NetDocuments, Worldox) and formatting knowledge (Table of Authorities, Tables of Contents, blue-backing, court filing standards).</p><div class="tip"><strong>Tip:</strong> Formatting precision matters in legal. Show you know court-specific requirements.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you manage calendars and deadlines for multiple attorneys? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Describe your docketing approach, reminder systems, and how you confirm upcoming deadlines with attorneys proactively.</p><div class="tip"><strong>Tip:</strong> A missed deadline can end a case. Show you have multiple safeguards in place.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Tell me about a time you had to coordinate a complex filing under a tight deadline. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Use STAR. Cover the filing requirements, the time pressure, how you coordinated with attorneys, and the result.</p><div class="tip"><strong>Tip:</strong> E-filing failures happen. Show you have backup plans and verify confirmations.</div></div></div>
-    </div>
-
-    <!-- GENERAL FINANCE -->
-    <div id="sec-finance-general" class="content-section">
-      <button class="back-btn" onclick="hideSection()">&larr; Back to Positions</button>
-      <div class="divider"></div>
-      <h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">General <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Finance</span> Questions</h2>
-      <p class="subtitle">Common interview questions for financial services professionals.</p>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you approach risk assessment in financial transactions? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Explain your process: data review, stakeholder consultation, scenario modeling, and communicating findings.</p><div class="tip"><strong>Tip:</strong> Balance thoroughness with business practicality. Firms want risk-aware, not risk-averse.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Describe a time you identified a discrepancy in financial data. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Use STAR. What you found, potential impact, how you investigated, and what controls you recommended.</p><div class="tip"><strong>Tip:</strong> Attention to detail is everything in finance. Prove it with a real story.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you stay current with financial regulations and market conditions? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Mention publications, professional associations, continuing education, and how you translate changes into action.</p><div class="tip"><strong>Tip:</strong> Show you are a self-directed learner who does not wait to be told about changes.</div></div></div>
-    </div>
-
-    <!-- COMPLIANCE -->
-    <div id="sec-compliance" class="content-section">
-      <button class="back-btn" onclick="hideSection()">&larr; Back to Positions</button>
-      <div class="divider"></div>
-      <h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;"><span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Compliance</span> Questions</h2>
-      <p class="subtitle">Interview questions for compliance roles in financial services.</p>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Walk me through your experience with regulatory compliance programs. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Discuss specific regulations: SEC, FINRA, SOX, AML/KYC. Describe your role in audits, reporting, and policy implementation.</p><div class="tip"><strong>Tip:</strong> Reference regulations by name to show depth.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you handle a situation where you discover a compliance violation? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Walk through your escalation process, documentation, remediation plan, and how you communicated with leadership.</p><div class="tip"><strong>Tip:</strong> Show that you prioritize the organization's integrity while being solutions-oriented.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you balance business objectives with compliance requirements? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Explain how you work with business teams to find compliant paths forward rather than simply saying no.</p><div class="tip"><strong>Tip:</strong> The best compliance professionals are enablers, not blockers. Frame yourself that way.</div></div></div>
-    </div>
-
-    <!-- ACCOUNTING -->
-    <div id="sec-accounting" class="content-section">
-      <button class="back-btn" onclick="hideSection()">&larr; Back to Positions</button>
-      <div class="divider"></div>
-      <h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;"><span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Accounting</span> Questions</h2>
-      <p class="subtitle">Interview questions for accounting and financial reporting roles.</p>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Walk me through your month-end close process. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Describe your checklist: journal entries, accruals, reconciliations, variance analysis, and reporting timelines.</p><div class="tip"><strong>Tip:</strong> Show efficiency and accuracy. Mention how you shortened close timelines or improved accuracy.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What accounting software and ERP systems are you experienced with? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>List platforms: QuickBooks, Sage, NetSuite, SAP, Oracle. Mention advanced Excel skills and any automation you have built.</p><div class="tip"><strong>Tip:</strong> If you have built automated reports or streamlined processes, that differentiates you.</div></div></div>
-      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Describe a time you found and corrected an accounting error. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Use STAR. Describe the error, how you found it, the financial impact, and the controls you implemented to prevent recurrence.</p><div class="tip"><strong>Tip:</strong> This is your chance to demonstrate the precision and integrity that define strong accountants.</div></div></div>
-    </div>
-
-  </div><!-- end qa-container -->
-
-  <!-- STAR METHOD -->
-  <section id="star">
-    <div class="divider"></div>
-    <h2>The <span>STAR</span> Method</h2>
-    <p class="subtitle">A proven framework for answering behavioral interview questions with clarity and impact.</p>
-    <div class="star-grid">
-      <div class="star-card"><div class="letter">S</div><h3>Situation</h3><p>Set the scene. Describe the context or challenge you faced.</p></div>
-      <div class="star-card"><div class="letter">T</div><h3>Task</h3><p>Explain your specific responsibility or objective.</p></div>
-      <div class="star-card"><div class="letter">A</div><h3>Action</h3><p>Detail the steps you personally took.</p></div>
-      <div class="star-card"><div class="letter">R</div><h3>Result</h3><p>Share the outcome. Quantify it if possible.</p></div>
-    </div>
-    <div class="star-example">
-      <h3>Example: Attorney Using STAR</h3>
-      <div class="step"><strong>S:</strong> A high-value client threatened to leave after a billing dispute during complex commercial litigation.</div>
-      <div class="step"><strong>T:</strong> As the associate managing the account, I needed to resolve the dispute and retain the client.</div>
-      <div class="step"><strong>A:</strong> I reviewed every line item with the client, prepared a revised summary, coordinated with the partner on a fair adjustment, and created a billing communication protocol.</div>
-      <div class="step"><strong>R:</strong> The client stayed, approved the invoice within 48 hours, and expanded our engagement by two matters worth $200K+ annually.</div>
-    </div>
-  </section>
-
-  <!-- QUICK TIPS -->
-  <section id="tips">
-    <div class="divider"></div>
-    <h2>Quick <span>Tips</span></h2>
-    <p class="subtitle">Last-minute reminders to walk in with confidence.</p>
-    <div class="card-grid">
-      <div class="card"><div class="icon">&#128269;</div><h3>Research the Employer</h3><p>Know the firm's practice areas, recent wins, culture, and leadership.</p></div>
-      <div class="card"><div class="icon">&#128084;</div><h3>Dress the Part</h3><p>Business professional is the standard for legal and financial interviews.</p></div>
-      <div class="card"><div class="icon">&#9997;</div><h3>Prepare Your Questions</h3><p>Have 3-5 thoughtful questions about team structure, growth, and what success looks like.</p></div>
-      <div class="card"><div class="icon">&#128172;</div><h3>Practice Out Loud</h3><p>Rehearse STAR stories. Saying them aloud builds confidence and reduces anxiety.</p></div>
-      <div class="card"><div class="icon">&#9200;</div><h3>Arrive Early</h3><p>10-15 minutes early in person. Test tech 30 minutes before for virtual.</p></div>
-      <div class="card"><div class="icon">&#9993;</div><h3>Follow Up</h3><p>Send a personalized thank-you email within 24 hours.</p></div>
-    </div>
-  </section>
-
-  <footer>
-    <p><strong>Interview Ready</strong> &mdash; Built to help candidates land the job.</p>
-    <p style="margin-top:0.5rem;">&copy; 2026. All rights reserved.</p>
-  </footer>
-
-  <script>
-    function toggleQA(el) {
-      el.classList.toggle('active');
-      el.nextElementSibling.classList.toggle('open');
-    }
-    function showSection(id) {
-      document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-      document.getElementById('sec-' + id).classList.add('active');
-      document.getElementById('sec-' + id).scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-    function hideSection() {
-      document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-      document.getElementById('positions').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  </script>
-</body>
-</html>
+    <!-- QA SECTIONS -->
+    <div id="qa-wrap" style="max-width:1000px;margin:0 auto;padding:0 2rem 3rem;">
+      <div id="qa-attorney-general" class="content-section">
+        <button class="back-btn" onclick="hideQA()">&larr; Back to Positions</button>
+        <div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">General <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Attorney</span></h2><p class="subtitle">Common questions across practice areas.</p>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Why did you choose this practice area? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Connect to a genuine interest or formative experience. Reference specific cases, coursework, or mentors.</p><div class="tip"><strong>Tip:</strong> Mention a specific moment that ignited your passion.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you manage a heavy caseload? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Describe calendaring tools, task prioritization, and communication with partners about bandwidth.</p><div class="tip"><strong>Tip:</strong> Name specific tools like practice management software.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Tell me about a difficult opposing counsel situation. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Use STAR. Focus on professionalism and de-escalation.</p><div class="tip"><strong>Tip:</strong> Never badmouth opposing counsel.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What is your approach to business development? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Discuss networking, industry involvement, writing, and referral relationships.</p><div class="tip"><strong>Tip:</strong> Even juniors should show BD awareness.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Describe a time you made an error on a case. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Choose a recoverable mistake. Walk through what happened and safeguards you added.</p><div class="tip"><strong>Tip:</strong> Firms value accountability.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Why are you looking to leave your current firm? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Frame around what you are moving toward: growth, alignment, culture.</p><div class="tip"><strong>Tip:</strong> Never speak negatively about your current employer.</div></div></div>
+      </div>
+      <div id="qa-insurance" class="content-section">
+        <button class="back-btn" onclick="hideQA()">&larr; Back to Positions</button>
+        <div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">Insurance <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Defense</span></h2><p class="subtitle">Questions for insurance defense roles.</p>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What is your experience defending carriers and insureds? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Detail carrier types, coverage lines, and your litigation lifecycle role.</p><div class="tip"><strong>Tip:</strong> Name carrier clients if permitted.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you handle carrier billing guidelines? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Discuss rate caps, task-based billing, and budget management.</p><div class="tip"><strong>Tip:</strong> Show you understand cost-efficient defense.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Describe your coverage analysis experience. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Walk through policy review, coverage issues, and ROR letters.</p><div class="tip"><strong>Tip:</strong> Dual coverage/defense perspective is a strength.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you evaluate early resolution vs. trial? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Explain liability exposure, damages, costs, limits, and risk appetite analysis.</p><div class="tip"><strong>Tip:</strong> Think total cost of defense, not just win/loss.</div></div></div>
+      </div>
+      <div id="qa-realestate" class="content-section">
+        <button class="back-btn" onclick="hideQA()">&larr; Back to Positions</button>
+        <div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">Real Estate <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Attorney</span></h2><p class="subtitle">Questions for real estate roles.</p>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What types of real estate transactions have you handled? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Break down by type and deal size: acquisitions, leasing, financing, development.</p><div class="tip"><strong>Tip:</strong> Quantify. $50M+ carries weight.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you approach due diligence? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Title, survey, environmental, zoning, lease abstracts, estoppels.</p><div class="tip"><strong>Tip:</strong> Show systematic thoroughness.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Describe a deal that hit a major obstacle. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Use STAR. Show creative problem-solving.</p><div class="tip"><strong>Tip:</strong> Partners want solution-finders.</div></div></div>
+      </div>
+      <div id="qa-workcomp" class="content-section">
+        <button class="back-btn" onclick="hideQA()">&larr; Back to Positions</button>
+        <div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">Workers' <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Comp</span></h2><p class="subtitle">Questions for workers' compensation roles.</p>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Do you represent claimants, employers, or carriers? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>State your side clearly. Mention caseload volume and injury types.</p><div class="tip"><strong>Tip:</strong> Workers' comp firms are side-specific.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you handle disputed claims? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Evidence gathering: medical records, witness statements, IME coordination.</p><div class="tip"><strong>Tip:</strong> Show administrative hearing knowledge.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What is your MSA and settlement experience? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Discuss MSA allocations, CMS submissions, and structured settlements.</p><div class="tip"><strong>Tip:</strong> MSA knowledge is increasingly valuable.</div></div></div>
+      </div>
+      <div id="qa-family" class="content-section">
+        <button class="back-btn" onclick="hideQA()">&larr; Back to Positions</button>
+        <div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">Family <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Law</span></h2><p class="subtitle">Questions for family law roles.</p>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you handle high-conflict custody disputes? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Discuss managing emotional clients, GALs, and best-interests evidence.</p><div class="tip"><strong>Tip:</strong> Demonstrate emotional intelligence.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What is your experience with complex asset division? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Business valuations, QDROs, stock options, forensic accountants.</p><div class="tip"><strong>Tip:</strong> Show financial literacy.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you approach settlement negotiations? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Mediation experience, collaborative law, realistic outcome preparation.</p><div class="tip"><strong>Tip:</strong> Courts favor settlement. Show negotiation skill.</div></div></div>
+      </div>
+      <div id="qa-corporate" class="content-section">
+        <button class="back-btn" onclick="hideQA()">&larr; Back to Positions</button>
+        <div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">Corporate / <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Transactional</span></h2><p class="subtitle">Questions for corporate roles.</p>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What transactions have you worked on? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>M&A, PE, VC, general corporate. Specify deal sizes and your responsibility level.</p><div class="tip"><strong>Tip:</strong> Be honest about your role. Credibility matters.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you manage multiple closings? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Closing checklists, signature pages, escrow coordination.</p><div class="tip"><strong>Tip:</strong> Show you are organized under pressure.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Walk me through negotiating a purchase agreement provision. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Pick one you know: indemnification, reps, earnouts. Explain risk allocation.</p><div class="tip"><strong>Tip:</strong> Pick something you have actually negotiated.</div></div></div>
+      </div>
+      <div id="qa-paralegal" class="content-section">
+        <button class="back-btn" onclick="hideQA()">&larr; Back to Positions</button>
+        <div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;"><span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Paralegal</span></h2><p class="subtitle">Questions for paralegal candidates.</p>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What types of cases have you supported? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Drafting discovery, document review, depositions, motions, case calendars.</p><div class="tip"><strong>Tip:</strong> Be specific about volume and complexity.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you prioritize when multiple attorneys need help? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Check deadlines, distinguish court dates from internal, communicate bandwidth.</p><div class="tip"><strong>Tip:</strong> Be proactive, not reactive.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What legal software are you proficient in? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Westlaw, LexisNexis, Relativity, NetDocuments, Clio, iManage.</p><div class="tip"><strong>Tip:</strong> If unfamiliar with a tool, show you learn quickly.</div></div></div>
+      </div>
+      <div id="qa-legalasst" class="content-section">
+        <button class="back-btn" onclick="hideQA()">&larr; Back to Positions</button>
+        <div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">Legal <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Assistant</span></h2><p class="subtitle">Questions for legal assistant roles.</p>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What administrative and legal tasks are you experienced with? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Calendar management, correspondence, filing, client intake, expenses.</p><div class="tip"><strong>Tip:</strong> Show range across admin and substantive work.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you handle confidential information? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Attorney-client privilege, secure handling, data security practices.</p><div class="tip"><strong>Tip:</strong> Mention locked workstations, encrypted email, secure shredding.</div></div></div>
+      </div>
+      <div id="qa-legalsec" class="content-section">
+        <button class="back-btn" onclick="hideQA()">&larr; Back to Positions</button>
+        <div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">Legal <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Secretary</span></h2><p class="subtitle">Questions for legal secretary positions.</p>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What document management systems do you know? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>iManage, NetDocuments, Worldox. TOA, TOC, blue-backing, court standards.</p><div class="tip"><strong>Tip:</strong> Formatting precision matters. Show court-specific knowledge.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you manage deadlines for multiple attorneys? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Docketing approach, reminder systems, proactive confirmation.</p><div class="tip"><strong>Tip:</strong> A missed deadline can end a case. Show safeguards.</div></div></div>
+      </div>
+      <div id="qa-finance-general" class="content-section">
+        <button class="back-btn" onclick="hideQA()">&larr; Back to Positions</button>
+        <div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">General <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Finance</span></h2><p class="subtitle">Questions for financial services roles.</p>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you approach risk assessment? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Data review, stakeholder consultation, scenario modeling.</p><div class="tip"><strong>Tip:</strong> Balance thoroughness with practicality.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Describe finding a discrepancy in financial data. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Use STAR: what you found, impact, investigation, controls recommended.</p><div class="tip"><strong>Tip:</strong> Prove attention to detail with a real story.</div></div></div>
+      </div>
+      <div id="qa-compliance" class="content-section">
+        <button class="back-btn" onclick="hideQA()">&larr; Back to Positions</button>
+        <div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;"><span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Compliance</span></h2><p class="subtitle">Questions for compliance roles.</p>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Walk me through your regulatory compliance experience. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>SEC, FINRA, SOX, AML/KYC. Your role in audits and policy implementation.</p><div class="tip"><strong>Tip:</strong> Reference regulations by name.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you balance business objectives with compliance? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Work with business teams to find compliant paths forward.</p><div class="tip"><strong>Tip:</strong> Be an enabler, not a blocker.</div></div></div>
+      </div>
+      <div id="qa-accounting" class="content-section">
+        <button class="back-btn" onclick="hideQA()">&larr; Back to Positions</button>
+        <div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;"><span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Accounting</span></h2><p class="subtitle">Questions for accounting roles.</p>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Walk me through your month-end close process. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Journal entries, accruals, reconciliations, variance analysis, timelines.</p><div class="tip"><strong>Tip:</strong> Mention how you improved close speed or accuracy.</div></div></div>
+        <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What accounting software are you experienced with? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>QuickBooks, Sage, NetSuite, SAP, Oracle. Advanced Excel, automation.</p><div class="tip"><strong>Tip:</strong> Built automated reports? That differentiates you.</div></div></div>
+      </div>
+    </div><!-- end qa-wrap -->
+  </div><!-- end positions page -->
