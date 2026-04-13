@@ -27,7 +27,6 @@
       color: var(--text);
       line-height: 1.7;
     }
-    /* NAV */
     nav {
       position: fixed; top: 0; width: 100%; z-index: 100;
       background: rgba(15,15,35,0.95); backdrop-filter: blur(10px);
@@ -39,7 +38,6 @@
     nav ul { list-style: none; display: flex; gap: 2rem; }
     nav ul li a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.3s; }
     nav ul li a:hover { color: var(--accent); }
-    /* HERO */
     .hero {
       margin-top: 60px; padding: 6rem 2rem; text-align: center;
       background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
@@ -55,13 +53,11 @@
     .hero h1 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem; position: relative; }
     .hero .badge { display: inline-block; background: var(--accent); color: #fff; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem; margin-bottom: 1.5rem; position: relative; }
-    /* SECTIONS */
     section { padding: 4rem 2rem; max-width: 1000px; margin: 0 auto; }
     section h2 { font-size: 2.2rem; margin-bottom: 0.5rem; font-weight: 800; }
     section h2 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     section .subtitle { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.1rem; }
     .divider { width: 60px; height: 4px; background: var(--gradient); border-radius: 2px; margin-bottom: 2rem; }
-    /* CARDS */
     .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
     .card {
       background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px;
@@ -71,7 +67,6 @@
     .card .icon { font-size: 2rem; margin-bottom: 1rem; }
     .card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #fff; }
     .card p { color: var(--text-muted); font-size: 0.95rem; }
-    /* STAR */
     .star-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
     .star-card {
       background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px;
@@ -90,7 +85,6 @@
     .star-example h3 { color: var(--accent); margin-bottom: 1rem; }
     .star-example .step { margin-bottom: 1rem; }
     .star-example .step strong { color: var(--gold); }
-    /* Q&A ACCORDION */
     .qa-item { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 1rem; overflow: hidden; }
     .qa-question {
       padding: 1.25rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
@@ -104,19 +98,16 @@
     .qa-answer p { color: var(--text-muted); }
     .qa-answer .tip { margin-top: 0.75rem; padding: 1rem; background: rgba(233,69,96,0.08); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; }
     .qa-answer .tip strong { color: var(--accent); }
-    /* POSITION TABS */
     .pos-tabs { display: flex; gap: 0.75rem; margin-bottom: 2rem; flex-wrap: wrap; }
     .pos-tab {
       padding: 0.6rem 1.5rem; border-radius: 50px; border: 1px solid var(--border);
-      background: transparent; color: var(--text-muted); cursor: pointer; font-weight: 600; transition: all 0.3s;
+      background: transparent; color: var(--text-muted); cursor: pointer; font-weight: 600; transition: all 0.3s; font-size: 0.95rem;
     }
     .pos-tab:hover, .pos-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
     .pos-content { display: none; }
     .pos-content.active { display: block; }
-    /* FOOTER */
     footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--border); color: var(--text-muted); }
     footer a { color: var(--accent); text-decoration: none; }
-    /* RESPONSIVE */
     @media (max-width: 768px) {
       nav ul { display: none; }
       .hero h1 { font-size: 2.2rem; }
@@ -126,7 +117,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <div class="logo"><span>Interviews for Dummies</span></div>
     <ul>
@@ -136,39 +126,21 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
   <div class="hero">
     <div class="badge">Your Free Interview Prep Guide</div>
     <h1>Ace Your Next <span>Interview</span></h1>
-    <p>Master the STAR method, nail common questions for attorneys and more, and walk in with total confidence.</p>
+    <p>Master the STAR method, nail common questions for attorneys, paralegals, financial professionals, and more.</p>
   </div>
 
-  <!-- STAR METHOD -->
   <section id="star">
     <div class="divider"></div>
     <h2>The <span>STAR</span> Method</h2>
     <p class="subtitle">A proven framework for answering behavioral interview questions with clarity and impact.</p>
     <div class="star-grid">
-      <div class="star-card">
-        <div class="letter">S</div>
-        <h3>Situation</h3>
-        <p>Set the scene. Describe the context or challenge you faced in a prior role.</p>
-      </div>
-      <div class="star-card">
-        <div class="letter">T</div>
-        <h3>Task</h3>
-        <p>Explain your specific responsibility or objective in that situation.</p>
-      </div>
-      <div class="star-card">
-        <div class="letter">A</div>
-        <h3>Action</h3>
-        <p>Detail the steps you personally took to address the challenge.</p>
-      </div>
-      <div class="star-card">
-        <div class="letter">R</div>
-        <h3>Result</h3>
-        <p>Share the outcome. Quantify it if possible and explain what you learned.</p>
-      </div>
+      <div class="star-card"><div class="letter">S</div><h3>Situation</h3><p>Set the scene. Describe the context or challenge you faced in a prior role.</p></div>
+      <div class="star-card"><div class="letter">T</div><h3>Task</h3><p>Explain your specific responsibility or objective in that situation.</p></div>
+      <div class="star-card"><div class="letter">A</div><h3>Action</h3><p>Detail the steps you personally took to address the challenge.</p></div>
+      <div class="star-card"><div class="letter">R</div><h3>Result</h3><p>Share the outcome. Quantify it if possible and explain what you learned.</p></div>
     </div>
     <div class="star-example">
       <h3>Example: Attorney Behavioral Answer Using STAR</h3>
@@ -179,80 +151,82 @@
     </div>
   </section>
 
-  <!-- Q&A BY POSITION -->
   <section id="questions">
     <div class="divider"></div>
     <h2>Common <span>Interview Questions</span></h2>
     <p class="subtitle">Select a position type to see typical questions and expert guidance on how to answer them.</p>
     <div class="pos-tabs">
-      <button class="pos-tab active" onclick="showPos('attorney')">Attorneys</button>
+      <button class="pos-tab active" onclick="showPos('attorney')">Attorneys (General)</button>
+      <button class="pos-tab" onclick="showPos('insurance')">Insurance Defense</button>
+      <button class="pos-tab" onclick="showPos('realestate')">Real Estate</button>
+      <button class="pos-tab" onclick="showPos('workcomp')">Workers' Compensation</button>
+      <button class="pos-tab" onclick="showPos('family')">Family Law</button>
+      <button class="pos-tab" onclick="showPos('corporate')">Corporate/Transactional</button>
       <button class="pos-tab" onclick="showPos('paralegal')">Paralegals</button>
       <button class="pos-tab" onclick="showPos('finance')">Financial Services</button>
     </div>
 
-    <!-- ATTORNEY QUESTIONS -->
     <div id="pos-attorney" class="pos-content active">
-      <div class="qa-item">
-        <div class="qa-question" onclick="toggleQA(this)">Why did you choose to practice law in this specific area? <span class="arrow">&#9660;</span></div>
-        <div class="qa-answer"><p>Connect your answer to a genuine interest or formative experience. Reference specific cases, coursework, or mentors that drew you to the practice area. Show that your choice is intentional, not random.</p><div class="tip"><strong>Tip:</strong> Avoid generic answers. Mention a specific moment, case, or experience that ignited your passion for this area of law.</div></div>
-      </div>
-      <div class="qa-item">
-        <div class="qa-question" onclick="toggleQA(this)">How do you manage a heavy caseload and competing deadlines? <span class="arrow">&#9660;</span></div>
-        <div class="qa-answer"><p>Describe your organizational system: calendaring tools, task prioritization methods, and how you communicate with partners about bandwidth. Give a concrete example of a time you juggled multiple urgent matters.</p><div class="tip"><strong>Tip:</strong> Mention specific tools (e.g., practice management software, docketing systems) and frameworks you use to stay organized.</div></div>
-      </div>
-      <div class="qa-item">
-        <div class="qa-question" onclick="toggleQA(this)">Tell me about a difficult opposing counsel situation and how you handled it. <span class="arrow">&#9660;</span></div>
-        <div class="qa-answer"><p>Use the STAR method here. Focus on professionalism, your ability to de-escalate tension, and how you kept the client's best interest front and center. Emphasize the resolution and what you learned.</p><div class="tip"><strong>Tip:</strong> Never badmouth opposing counsel. Frame the difficulty around the situation, not the person.</div></div>
-      </div>
-      <div class="qa-item">
-        <div class="qa-question" onclick="toggleQA(this)">What is your approach to client development and business generation? <span class="arrow">&#9660;</span></div>
-        <div class="qa-answer"><p>Discuss networking habits, industry involvement, writing or speaking engagements, and how you maintain relationships with referral sources. If you are early-career, discuss your plan and any client-facing experience you do have.</p><div class="tip"><strong>Tip:</strong> Even junior attorneys should show awareness of business development. Mention bar associations, CLEs, or community involvement.</div></div>
-      </div>
-      <div class="qa-item">
-        <div class="qa-question" onclick="toggleQA(this)">Describe a time you made an error on a case. What happened? <span class="arrow">&#9660;</span></div>
-        <div class="qa-answer"><p>Be honest but strategic. Choose a real but recoverable mistake. Walk through what happened, how you caught or addressed it, what you communicated to the team, and the safeguards you put in place afterward.</p><div class="tip"><strong>Tip:</strong> Firms value self-awareness and accountability. Showing you can own a mistake and improve from it builds trust.</div></div>
-      </div>
-      <div class="qa-item">
-        <div class="qa-question" onclick="toggleQA(this)">Why are you looking to leave your current firm? <span class="arrow">&#9660;</span></div>
-        <div class="qa-answer"><p>Frame your answer around what you are moving toward, not what you are running from. Talk about growth opportunities, practice area alignment, culture fit, or platform advantages at the target firm.</p><div class="tip"><strong>Tip:</strong> Never speak negatively about your current employer. Keep the focus on the opportunity ahead.</div></div>
-      </div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Why did you choose to practice law in this specific area? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Connect your answer to a genuine interest or formative experience. Reference specific cases, coursework, or mentors that drew you to the practice area.</p><div class="tip"><strong>Tip:</strong> Avoid generic answers. Mention a specific moment or experience that ignited your passion for this area of law.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you manage a heavy caseload and competing deadlines? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Describe your organizational system: calendaring tools, task prioritization, and how you communicate with partners about bandwidth. Give a concrete example.</p><div class="tip"><strong>Tip:</strong> Mention specific tools like practice management software or docketing systems you use to stay organized.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Tell me about a difficult opposing counsel situation and how you handled it. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Use the STAR method. Focus on professionalism, de-escalation, and keeping the client's best interest front and center.</p><div class="tip"><strong>Tip:</strong> Never badmouth opposing counsel. Frame the difficulty around the situation, not the person.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What is your approach to client development and business generation? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Discuss networking, industry involvement, writing or speaking engagements, and maintaining referral relationships. If early-career, discuss your plan.</p><div class="tip"><strong>Tip:</strong> Even junior attorneys should show awareness of business development through bar associations, CLEs, or community involvement.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Describe a time you made an error on a case. What happened? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Be honest but strategic. Choose a real but recoverable mistake. Walk through what happened, how you addressed it, and safeguards you put in place.</p><div class="tip"><strong>Tip:</strong> Firms value self-awareness and accountability. Showing you can own a mistake and improve from it builds trust.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Why are you looking to leave your current firm? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Frame your answer around what you are moving toward, not what you are running from. Talk about growth, practice area alignment, or culture fit.</p><div class="tip"><strong>Tip:</strong> Never speak negatively about your current employer. Keep the focus on the opportunity ahead.</div></div></div>
     </div>
 
-    <!-- PARALEGAL QUESTIONS -->
+    <div id="pos-insurance" class="pos-content">
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What is your experience defending insurance carriers and their insureds? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Detail the types of carriers you have worked with, the lines of coverage (auto, CGL, professional liability, homeowners), and your role in the litigation lifecycle from initial coverage analysis through trial.</p><div class="tip"><strong>Tip:</strong> Name specific carrier clients if your current firm allows it. Hiring partners want to gauge whether your experience aligns with their book.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you handle billing guidelines and litigation management requirements from carriers? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Discuss your familiarity with carrier billing guidelines, rate caps, task-based billing codes, and litigation plans. Explain how you manage budgets while still providing thorough representation.</p><div class="tip"><strong>Tip:</strong> Show you understand the business side. Carriers care about cost-efficient defense, not just legal wins.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Describe your experience with coverage analysis and reservation of rights letters. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Walk through your process for reviewing a policy, identifying coverage issues, and communicating with the carrier. Mention whether you have drafted reservation of rights or denial letters.</p><div class="tip"><strong>Tip:</strong> If you have experience with both coverage opinions and defense work, highlight that dual perspective as a strength.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you evaluate a case for early resolution vs. taking it to trial? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Explain your framework: liability exposure, damages assessment, litigation costs, policy limits, and the insured's appetite for risk. Discuss how you present settlement recommendations to the carrier.</p><div class="tip"><strong>Tip:</strong> Demonstrate that you think strategically about total cost of defense, not just win/loss outcomes.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Tell me about your deposition and trial experience in personal injury defense. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Quantify your experience: number of depositions taken and defended, mediations attended, trials (bench and jury). Describe your approach to preparing witnesses and cross-examining plaintiffs and experts.</p><div class="tip"><strong>Tip:</strong> Be specific with numbers. Saying you have taken 50+ depositions is much more impactful than saying you have significant deposition experience.</div></div></div>
+    </div>
+
+    <div id="pos-realestate" class="pos-content">
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What types of real estate transactions have you handled? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Break down your experience by transaction type: commercial acquisitions and dispositions, leasing, financing, development, and residential closings. Mention deal sizes and complexity levels.</p><div class="tip"><strong>Tip:</strong> Quantify your deals. Saying you have closed $50M+ in commercial transactions carries weight.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you approach due diligence on a commercial real estate deal? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Walk through your checklist: title review, survey analysis, environmental reports, zoning compliance, lease abstracts, estoppels, and entity formation. Explain how you coordinate with the deal team.</p><div class="tip"><strong>Tip:</strong> Show that you are systematic and thorough. Missed issues in due diligence can kill deals or create liability.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Describe a deal that fell apart or hit a major obstacle. How did you handle it? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Use STAR. Describe the issue (title defect, environmental problem, financing failure), your role in identifying solutions, and the outcome. Show creative problem-solving.</p><div class="tip"><strong>Tip:</strong> Real estate partners want attorneys who find solutions, not just flag problems. Show how you helped save or restructure the deal.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What is your experience with commercial lease negotiations? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Describe whether you have represented landlords, tenants, or both. Discuss key lease provisions you negotiate: rent escalations, CAM charges, assignment and subletting, options to renew, and tenant improvement allowances.</p><div class="tip"><strong>Tip:</strong> If you have represented both sides, highlight how that gives you a strategic advantage in negotiations.</div></div></div>
+    </div>
+
+    <div id="pos-workcomp" class="pos-content">
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Do you primarily represent claimants, employers, or carriers? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Clearly state your side and explain your typical caseload. If you have experience on both sides, discuss how that gives you insight into opposing strategies. Mention case volume and types of injuries handled.</p><div class="tip"><strong>Tip:</strong> Workers' comp firms are often side-specific. Be clear and honest about which side you have more experience on.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you handle a disputed claim where the employer denies the injury is work-related? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Describe your approach to gathering evidence: medical records, witness statements, job descriptions, surveillance review, and IME coordination. Explain how you build the record for hearing.</p><div class="tip"><strong>Tip:</strong> Show your knowledge of the administrative process and how you prepare for contested hearings before the workers' comp commission or board.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What is your experience with Medicare Set-Asides and settlement structures? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Discuss whether you have handled MSA allocations, CMS submissions, and structured settlements. Explain your approach to protecting the client while ensuring compliance with federal requirements.</p><div class="tip"><strong>Tip:</strong> MSA knowledge is increasingly valuable. If you have direct CMS submission experience, highlight it.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Describe your hearing and trial experience in workers' comp cases. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Quantify your appearances before the workers' comp board or commission. Describe the types of hearings: temporary total disability, permanent partial, vocational rehabilitation disputes, and settlement approvals.</p><div class="tip"><strong>Tip:</strong> Workers' comp is a volume practice. Demonstrating a high number of hearings shows you can handle the pace.</div></div></div>
+    </div>
+
+    <div id="pos-family" class="pos-content">
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you handle high-conflict custody disputes? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Discuss your approach to managing emotionally charged clients, working with guardians ad litem, presenting evidence on best interests of the child, and navigating contested custody evaluations.</p><div class="tip"><strong>Tip:</strong> Demonstrate emotional intelligence. Family law firms want attorneys who can manage client emotions while staying focused on legal strategy.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What is your experience with complex asset division in divorce cases? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Detail your experience with business valuations, retirement account division (QDROs), real property, stock options, and hidden asset investigations. Mention forensic accountant collaboration.</p><div class="tip"><strong>Tip:</strong> High-net-worth divorce work requires financial literacy. Show you can work with numbers, not just legal arguments.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you approach settlement negotiations in family law matters? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Explain your mediation experience, collaborative law training if applicable, and how you prepare clients for realistic outcomes. Discuss how you balance advocacy with the benefits of settlement.</p><div class="tip"><strong>Tip:</strong> Courts and clients increasingly favor settlement. Show that you are a skilled negotiator, not just a litigator.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Describe a case where you had to seek or defend against an order of protection. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Walk through the process: emergency petitions, evidentiary hearings, witness preparation, and the impact on related custody or divorce proceedings. Emphasize sensitivity and urgency.</p><div class="tip"><strong>Tip:</strong> These cases involve safety concerns. Show that you take them seriously and can act quickly under pressure.</div></div></div>
+    </div>
+
+    <div id="pos-corporate" class="pos-content">
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What types of transactions have you worked on and what was your role? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Detail your M&A, private equity, venture capital, or general corporate experience. Specify whether you ran deals or supported as part of a larger team. Mention deal sizes and industries.</p><div class="tip"><strong>Tip:</strong> Be clear about your level of responsibility. Did you draft the purchase agreement or just review ancillary documents? Honesty here builds credibility.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you manage multiple closings happening simultaneously? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Describe your project management approach: closing checklists, signature pages, escrow coordination, and how you communicate with all parties. Show that you thrive in high-pressure, deadline-driven environments.</p><div class="tip"><strong>Tip:</strong> Transactional work is all about execution. Show that you are organized, detail-oriented, and calm under pressure.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Walk me through how you would draft or negotiate a key provision in a purchase agreement. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Pick a provision you know well (indemnification, reps and warranties, earnouts, non-competes) and walk through your approach: understanding the business terms, identifying risk allocation, and negotiating with opposing counsel.</p><div class="tip"><strong>Tip:</strong> This tests your technical depth. Pick something you have actually negotiated and can speak to with confidence.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you stay current on regulatory changes affecting your corporate clients? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Mention specific resources: SEC updates, state corporate law developments, industry publications, and continuing education. Show that you proactively advise clients on changes that affect their business.</p><div class="tip"><strong>Tip:</strong> Corporate clients expect their attorneys to be business advisors, not just document drafters. Show a broader perspective.</div></div></div>
+    </div>
+
     <div id="pos-paralegal" class="pos-content">
-      <div class="qa-item">
-        <div class="qa-question" onclick="toggleQA(this)">What types of cases have you supported and what was your role? <span class="arrow">&#9660;</span></div>
-        <div class="qa-answer"><p>Walk through your experience by practice area. Describe specific tasks: drafting discovery, managing document review, coordinating depositions, filing motions, or maintaining case calendars.</p><div class="tip"><strong>Tip:</strong> Be specific about volume and complexity. Saying you managed discovery for a 50,000-document production is more impactful than just saying you did document review.</div></div>
-      </div>
-      <div class="qa-item">
-        <div class="qa-question" onclick="toggleQA(this)">How do you prioritize tasks when multiple attorneys need your help at the same time? <span class="arrow">&#9660;</span></div>
-        <div class="qa-answer"><p>Explain your communication approach: checking deadlines, asking about court dates vs. internal deadlines, and keeping attorneys informed about your bandwidth. Give a real example.</p><div class="tip"><strong>Tip:</strong> Show that you are proactive about managing expectations rather than just reactive.</div></div>
-      </div>
-      <div class="qa-item">
-        <div class="qa-question" onclick="toggleQA(this)">What legal software and technology are you proficient in? <span class="arrow">&#9660;</span></div>
-        <div class="qa-answer"><p>List platforms you have used: Westlaw, LexisNexis, Relativity, NetDocuments, Clio, iManage, etc. Mention your comfort level with e-filing systems and any certifications or training.</p><div class="tip"><strong>Tip:</strong> If you lack experience in a specific tool they use, emphasize your ability to learn quickly and give an example of picking up new software fast.</div></div>
-      </div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What types of cases have you supported and what was your role? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Walk through your experience by practice area. Describe specific tasks: drafting discovery, managing document review, coordinating depositions, filing motions, or maintaining case calendars.</p><div class="tip"><strong>Tip:</strong> Be specific about volume and complexity. Saying you managed discovery for a 50,000-document production is more impactful than just saying you did document review.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you prioritize tasks when multiple attorneys need your help at the same time? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Explain your communication approach: checking deadlines, asking about court dates vs. internal deadlines, and keeping attorneys informed about your bandwidth.</p><div class="tip"><strong>Tip:</strong> Show that you are proactive about managing expectations rather than just reactive.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What legal software and technology are you proficient in? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>List platforms: Westlaw, LexisNexis, Relativity, NetDocuments, Clio, iManage, etc. Mention e-filing systems and any certifications.</p><div class="tip"><strong>Tip:</strong> If you lack experience in a specific tool, emphasize your ability to learn quickly with a concrete example.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Describe a time you caught an error that could have affected a case outcome. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Use STAR. Describe what you found, the potential impact, how you flagged it, and the result. This demonstrates attention to detail and the value you bring to a legal team.</p><div class="tip"><strong>Tip:</strong> Paralegals are often the last line of defense on details. This story should show you take that responsibility seriously.</div></div></div>
     </div>
 
-    <!-- FINANCIAL SERVICES QUESTIONS -->
     <div id="pos-finance" class="pos-content">
-      <div class="qa-item">
-        <div class="qa-question" onclick="toggleQA(this)">Walk me through your experience with regulatory compliance. <span class="arrow">&#9660;</span></div>
-        <div class="qa-answer"><p>Discuss specific regulations you have worked with (SEC, FINRA, SOX, AML/KYC). Describe your role in audits, compliance reporting, or policy implementation. Quantify scope where possible.</p><div class="tip"><strong>Tip:</strong> Reference specific frameworks and regulations by name to demonstrate depth of knowledge.</div></div>
-      </div>
-      <div class="qa-item">
-        <div class="qa-question" onclick="toggleQA(this)">How do you approach risk assessment in financial transactions? <span class="arrow">&#9660;</span></div>
-        <div class="qa-answer"><p>Explain your analytical process: data review, stakeholder consultation, scenario modeling, and how you communicate findings to decision-makers. Provide a concrete example of identifying and mitigating a risk.</p><div class="tip"><strong>Tip:</strong> Show that you balance thoroughness with business practicality. Firms want risk-aware professionals, not risk-averse ones.</div></div>
-      </div>
-      <div class="qa-item">
-        <div class="qa-question" onclick="toggleQA(this)">Describe a time you identified a discrepancy in financial data. <span class="arrow">&#9660;</span></div>
-        <div class="qa-answer"><p>Use the STAR method. Describe what you found, the potential impact, how you investigated and resolved it, and what controls you recommended to prevent recurrence.</p><div class="tip"><strong>Tip:</strong> Attention to detail is critical in finance. This question is your chance to prove it with a real story.</div></div>
-      </div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Walk me through your experience with regulatory compliance. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Discuss specific regulations you have worked with (SEC, FINRA, SOX, AML/KYC). Describe your role in audits, compliance reporting, or policy implementation.</p><div class="tip"><strong>Tip:</strong> Reference specific frameworks and regulations by name to demonstrate depth of knowledge.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you approach risk assessment in financial transactions? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Explain your analytical process: data review, stakeholder consultation, scenario modeling, and communicating findings to decision-makers.</p><div class="tip"><strong>Tip:</strong> Show that you balance thoroughness with business practicality. Firms want risk-aware professionals, not risk-averse ones.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Describe a time you identified a discrepancy in financial data. <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Use STAR. Describe what you found, the potential impact, how you investigated and resolved it, and what controls you recommended.</p><div class="tip"><strong>Tip:</strong> Attention to detail is critical in finance. This question is your chance to prove it with a real story.</div></div></div>
+      <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">How do you stay current with changes in financial regulations and market conditions? <span class="arrow">&#9660;</span></div><div class="qa-answer"><p>Mention industry publications, professional associations, continuing education, and how you translate regulatory changes into actionable guidance for your team or clients.</p><div class="tip"><strong>Tip:</strong> Show that you are a self-directed learner who does not wait to be told about changes that affect your work.</div></div></div>
     </div>
 
   </section>
 
-  <!-- QUICK TIPS -->
   <section id="tips">
     <div class="divider"></div>
     <h2>Quick <span>Tips</span></h2>
@@ -267,19 +241,15 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <p><strong>Interviews for Dummies</strong> &mdash; Built to help candidates land the job.</p>
-    <p style="margin-top:0.5rem;">To add more position types, duplicate a position tab block in the HTML and add a matching button.</p>
     <p style="margin-top:0.5rem;">&copy; 2026. All rights reserved.</p>
   </footer>
 
-  <!-- JAVASCRIPT -->
   <script>
     function toggleQA(el) {
       el.classList.toggle('active');
-      const answer = el.nextElementSibling;
-      answer.classList.toggle('open');
+      el.nextElementSibling.classList.toggle('open');
     }
     function showPos(pos) {
       document.querySelectorAll('.pos-content').forEach(c => c.classList.remove('active'));
