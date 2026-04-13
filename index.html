@@ -3,80 +3,290 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interview Preparation for Candidates</title>
+  <title>Interviews for Dummies | Your Complete Interview Prep Guide</title>
   <style>
+    :root {
+      --primary: #1a1a2e;
+      --secondary: #16213e;
+      --accent: #e94560;
+      --accent-light: #ff6b81;
+      --gold: #f5c518;
+      --bg: #0f0f23;
+      --card-bg: #1a1a2e;
+      --text: #e0e0e0;
+      --text-muted: #a0a0b0;
+      --border: #2a2a4a;
+      --success: #00d2d3;
+      --gradient: linear-gradient(135deg, #e94560, #f5c518);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background: #f7f7f7;
-      color: #222;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
     }
-    header {
-      background: #0b5d66;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
+    /* NAV */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(15,15,35,0.95); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;
     }
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 30px 20px;
-      background: white;
+    nav .logo { font-size: 1.4rem; font-weight: 800; }
+    nav .logo span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul li a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    nav ul li a:hover { color: var(--accent); }
+    /* HERO */
+    .hero {
+      margin-top: 60px; padding: 6rem 2rem; text-align: center;
+      background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+      position: relative; overflow: hidden;
     }
-    section {
-      margin-bottom: 40px;
+    .hero::before {
+      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(233,69,96,0.08) 0%, transparent 50%);
+      animation: pulse 8s ease-in-out infinite;
     }
-    h1, h2 {
-      margin-bottom: 10px;
+    @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+    .hero h1 { font-size: 3.5rem; font-weight: 900; margin-bottom: 1rem; position: relative; }
+    .hero h1 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem; position: relative; }
+    .hero .badge { display: inline-block; background: var(--accent); color: #fff; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem; margin-bottom: 1.5rem; position: relative; }
+    /* SECTIONS */
+    section { padding: 4rem 2rem; max-width: 1000px; margin: 0 auto; }
+    section h2 { font-size: 2.2rem; margin-bottom: 0.5rem; font-weight: 800; }
+    section h2 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    section .subtitle { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.1rem; }
+    .divider { width: 60px; height: 4px; background: var(--gradient); border-radius: 2px; margin-bottom: 2rem; }
+    /* CARDS */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .card {
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px;
+      padding: 2rem; transition: transform 0.3s, border-color 0.3s;
     }
-    ul {
-      padding-left: 20px;
+    .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .card .icon { font-size: 2rem; margin-bottom: 1rem; }
+    .card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #fff; }
+    .card p { color: var(--text-muted); font-size: 0.95rem; }
+    /* STAR */
+    .star-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+    .star-card {
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px;
+      padding: 2rem; text-align: center; position: relative; overflow: hidden;
     }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #eee;
-      font-size: 14px;
+    .star-card .letter {
+      font-size: 4rem; font-weight: 900; background: var(--gradient);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1;
+    }
+    .star-card h3 { margin: 0.75rem 0 0.5rem; color: #fff; font-size: 1.1rem; }
+    .star-card p { color: var(--text-muted); font-size: 0.9rem; }
+    .star-example {
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px;
+      padding: 2rem; margin-top: 2rem;
+    }
+    .star-example h3 { color: var(--accent); margin-bottom: 1rem; }
+    .star-example .step { margin-bottom: 1rem; }
+    .star-example .step strong { color: var(--gold); }
+    /* Q&A ACCORDION */
+    .qa-item { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 1rem; overflow: hidden; }
+    .qa-question {
+      padding: 1.25rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+      font-weight: 600; color: #fff; transition: background 0.3s;
+    }
+    .qa-question:hover { background: rgba(233,69,96,0.05); }
+    .qa-question .arrow { transition: transform 0.3s; color: var(--accent); font-size: 1.2rem; }
+    .qa-question.active .arrow { transform: rotate(180deg); }
+    .qa-answer { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
+    .qa-answer.open { max-height: 600px; padding: 0 1.5rem 1.5rem; }
+    .qa-answer p { color: var(--text-muted); }
+    .qa-answer .tip { margin-top: 0.75rem; padding: 1rem; background: rgba(233,69,96,0.08); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; }
+    .qa-answer .tip strong { color: var(--accent); }
+    /* POSITION TABS */
+    .pos-tabs { display: flex; gap: 0.75rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .pos-tab {
+      padding: 0.6rem 1.5rem; border-radius: 50px; border: 1px solid var(--border);
+      background: transparent; color: var(--text-muted); cursor: pointer; font-weight: 600; transition: all 0.3s;
+    }
+    .pos-tab:hover, .pos-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .pos-content { display: none; }
+    .pos-content.active { display: block; }
+    /* FOOTER */
+    footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--border); color: var(--text-muted); }
+    footer a { color: var(--accent); text-decoration: none; }
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .hero h1 { font-size: 2.2rem; }
+      section h2 { font-size: 1.7rem; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Interview Preparation for Candidates</h1>
-    <p>Practical guidance to help candidates prepare with confidence.</p>
-  </header>
 
-  <main>
-    <section>
-      <h2>Research the company</h2>
-      <p>Review the employer’s website, services, leadership, and recent news before the interview.</p>
-    </section>
+  <!-- NAV -->
+  <nav>
+    <div class="logo"><span>Interviews for Dummies</span></div>
+    <ul>
+      <li><a href="#star">STAR Method</a></li>
+      <li><a href="#questions">Q&A by Position</a></li>
+      <li><a href="#tips">Quick Tips</a></li>
+    </ul>
+  </nav>
 
-    <section>
-      <h2>Prepare your examples</h2>
-      <p>Match your experience to the job description and prepare specific stories that show results.</p>
-    </section>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="badge">Your Free Interview Prep Guide</div>
+    <h1>Ace Your Next <span>Interview</span></h1>
+    <p>Master the STAR method, nail common questions for attorneys and more, and walk in with total confidence.</p>
+  </div>
 
-    <section>
-      <h2>Practice common questions</h2>
-      <ul>
-        <li>Tell me about yourself</li>
-        <li>Why do you want this role?</li>
-        <li>Describe a challenge you solved</li>
-        <li>What are your strengths?</li>
-      </ul>
-    </section>
+  <!-- STAR METHOD -->
+  <section id="star">
+    <div class="divider"></div>
+    <h2>The <span>STAR</span> Method</h2>
+    <p class="subtitle">A proven framework for answering behavioral interview questions with clarity and impact.</p>
+    <div class="star-grid">
+      <div class="star-card">
+        <div class="letter">S</div>
+        <h3>Situation</h3>
+        <p>Set the scene. Describe the context or challenge you faced in a prior role.</p>
+      </div>
+      <div class="star-card">
+        <div class="letter">T</div>
+        <h3>Task</h3>
+        <p>Explain your specific responsibility or objective in that situation.</p>
+      </div>
+      <div class="star-card">
+        <div class="letter">A</div>
+        <h3>Action</h3>
+        <p>Detail the steps you personally took to address the challenge.</p>
+      </div>
+      <div class="star-card">
+        <div class="letter">R</div>
+        <h3>Result</h3>
+        <p>Share the outcome. Quantify it if possible and explain what you learned.</p>
+      </div>
+    </div>
+    <div class="star-example">
+      <h3>Example: Attorney Behavioral Answer Using STAR</h3>
+      <div class="step"><strong>S - Situation:</strong> At my previous firm, a high-value client threatened to leave after a billing dispute escalated during a complex commercial litigation matter.</div>
+      <div class="step"><strong>T - Task:</strong> As the associate managing the account, I needed to resolve the dispute, retain the client, and ensure ongoing case work was not disrupted.</div>
+      <div class="step"><strong>A - Action:</strong> I initiated a meeting with the client to review every line item, prepared a revised billing summary, and coordinated with the partner to offer a fair adjustment. I also created a go-forward billing communication protocol.</div>
+      <div class="step"><strong>R - Result:</strong> The client stayed with the firm, approved the revised invoice within 48 hours, and later expanded our engagement to include two additional matters worth over $200K in annual revenue.</div>
+    </div>
+  </section>
 
-    <section>
-      <h2>Follow up</h2>
-      <p>Send a thank-you note within 24 hours and reinforce your interest in the role.</p>
-    </section>
-  </main>
+  <!-- Q&A BY POSITION -->
+  <section id="questions">
+    <div class="divider"></div>
+    <h2>Common <span>Interview Questions</span></h2>
+    <p class="subtitle">Select a position type to see typical questions and expert guidance on how to answer them.</p>
+    <div class="pos-tabs">
+      <button class="pos-tab active" onclick="showPos('attorney')">Attorneys</button>
+      <button class="pos-tab" onclick="showPos('paralegal')">Paralegals</button>
+      <button class="pos-tab" onclick="showPos('finance')">Financial Services</button>
+    </div>
 
+    <!-- ATTORNEY QUESTIONS -->
+    <div id="pos-attorney" class="pos-content active">
+      <div class="qa-item">
+        <div class="qa-question" onclick="toggleQA(this)">Why did you choose to practice law in this specific area? <span class="arrow">&#9660;</span></div>
+        <div class="qa-answer"><p>Connect your answer to a genuine interest or formative experience. Reference specific cases, coursework, or mentors that drew you to the practice area. Show that your choice is intentional, not random.</p><div class="tip"><strong>Tip:</strong> Avoid generic answers. Mention a specific moment, case, or experience that ignited your passion for this area of law.</div></div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question" onclick="toggleQA(this)">How do you manage a heavy caseload and competing deadlines? <span class="arrow">&#9660;</span></div>
+        <div class="qa-answer"><p>Describe your organizational system: calendaring tools, task prioritization methods, and how you communicate with partners about bandwidth. Give a concrete example of a time you juggled multiple urgent matters.</p><div class="tip"><strong>Tip:</strong> Mention specific tools (e.g., practice management software, docketing systems) and frameworks you use to stay organized.</div></div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question" onclick="toggleQA(this)">Tell me about a difficult opposing counsel situation and how you handled it. <span class="arrow">&#9660;</span></div>
+        <div class="qa-answer"><p>Use the STAR method here. Focus on professionalism, your ability to de-escalate tension, and how you kept the client's best interest front and center. Emphasize the resolution and what you learned.</p><div class="tip"><strong>Tip:</strong> Never badmouth opposing counsel. Frame the difficulty around the situation, not the person.</div></div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question" onclick="toggleQA(this)">What is your approach to client development and business generation? <span class="arrow">&#9660;</span></div>
+        <div class="qa-answer"><p>Discuss networking habits, industry involvement, writing or speaking engagements, and how you maintain relationships with referral sources. If you are early-career, discuss your plan and any client-facing experience you do have.</p><div class="tip"><strong>Tip:</strong> Even junior attorneys should show awareness of business development. Mention bar associations, CLEs, or community involvement.</div></div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question" onclick="toggleQA(this)">Describe a time you made an error on a case. What happened? <span class="arrow">&#9660;</span></div>
+        <div class="qa-answer"><p>Be honest but strategic. Choose a real but recoverable mistake. Walk through what happened, how you caught or addressed it, what you communicated to the team, and the safeguards you put in place afterward.</p><div class="tip"><strong>Tip:</strong> Firms value self-awareness and accountability. Showing you can own a mistake and improve from it builds trust.</div></div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question" onclick="toggleQA(this)">Why are you looking to leave your current firm? <span class="arrow">&#9660;</span></div>
+        <div class="qa-answer"><p>Frame your answer around what you are moving toward, not what you are running from. Talk about growth opportunities, practice area alignment, culture fit, or platform advantages at the target firm.</p><div class="tip"><strong>Tip:</strong> Never speak negatively about your current employer. Keep the focus on the opportunity ahead.</div></div>
+      </div>
+    </div>
+
+    <!-- PARALEGAL QUESTIONS -->
+    <div id="pos-paralegal" class="pos-content">
+      <div class="qa-item">
+        <div class="qa-question" onclick="toggleQA(this)">What types of cases have you supported and what was your role? <span class="arrow">&#9660;</span></div>
+        <div class="qa-answer"><p>Walk through your experience by practice area. Describe specific tasks: drafting discovery, managing document review, coordinating depositions, filing motions, or maintaining case calendars.</p><div class="tip"><strong>Tip:</strong> Be specific about volume and complexity. Saying you managed discovery for a 50,000-document production is more impactful than just saying you did document review.</div></div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question" onclick="toggleQA(this)">How do you prioritize tasks when multiple attorneys need your help at the same time? <span class="arrow">&#9660;</span></div>
+        <div class="qa-answer"><p>Explain your communication approach: checking deadlines, asking about court dates vs. internal deadlines, and keeping attorneys informed about your bandwidth. Give a real example.</p><div class="tip"><strong>Tip:</strong> Show that you are proactive about managing expectations rather than just reactive.</div></div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question" onclick="toggleQA(this)">What legal software and technology are you proficient in? <span class="arrow">&#9660;</span></div>
+        <div class="qa-answer"><p>List platforms you have used: Westlaw, LexisNexis, Relativity, NetDocuments, Clio, iManage, etc. Mention your comfort level with e-filing systems and any certifications or training.</p><div class="tip"><strong>Tip:</strong> If you lack experience in a specific tool they use, emphasize your ability to learn quickly and give an example of picking up new software fast.</div></div>
+      </div>
+    </div>
+
+    <!-- FINANCIAL SERVICES QUESTIONS -->
+    <div id="pos-finance" class="pos-content">
+      <div class="qa-item">
+        <div class="qa-question" onclick="toggleQA(this)">Walk me through your experience with regulatory compliance. <span class="arrow">&#9660;</span></div>
+        <div class="qa-answer"><p>Discuss specific regulations you have worked with (SEC, FINRA, SOX, AML/KYC). Describe your role in audits, compliance reporting, or policy implementation. Quantify scope where possible.</p><div class="tip"><strong>Tip:</strong> Reference specific frameworks and regulations by name to demonstrate depth of knowledge.</div></div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question" onclick="toggleQA(this)">How do you approach risk assessment in financial transactions? <span class="arrow">&#9660;</span></div>
+        <div class="qa-answer"><p>Explain your analytical process: data review, stakeholder consultation, scenario modeling, and how you communicate findings to decision-makers. Provide a concrete example of identifying and mitigating a risk.</p><div class="tip"><strong>Tip:</strong> Show that you balance thoroughness with business practicality. Firms want risk-aware professionals, not risk-averse ones.</div></div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-question" onclick="toggleQA(this)">Describe a time you identified a discrepancy in financial data. <span class="arrow">&#9660;</span></div>
+        <div class="qa-answer"><p>Use the STAR method. Describe what you found, the potential impact, how you investigated and resolved it, and what controls you recommended to prevent recurrence.</p><div class="tip"><strong>Tip:</strong> Attention to detail is critical in finance. This question is your chance to prove it with a real story.</div></div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- QUICK TIPS -->
+  <section id="tips">
+    <div class="divider"></div>
+    <h2>Quick <span>Tips</span></h2>
+    <p class="subtitle">Last-minute reminders to help you walk in with confidence.</p>
+    <div class="card-grid">
+      <div class="card"><div class="icon">&#128269;</div><h3>Research the Employer</h3><p>Know the firm's practice areas, recent wins, culture, and leadership. Tailor your answers to show you understand their world.</p></div>
+      <div class="card"><div class="icon">&#128084;</div><h3>Dress the Part</h3><p>When in doubt, overdress. Business professional is the standard for legal and financial services interviews.</p></div>
+      <div class="card"><div class="icon">&#9997;</div><h3>Prepare Your Questions</h3><p>Have 3-5 thoughtful questions ready. Ask about team structure, growth opportunities, and what success looks like in the role.</p></div>
+      <div class="card"><div class="icon">&#128172;</div><h3>Practice Out Loud</h3><p>Rehearse your STAR stories and key talking points. Saying them out loud builds muscle memory and reduces anxiety.</p></div>
+      <div class="card"><div class="icon">&#9200;</div><h3>Arrive Early</h3><p>Plan to arrive 10-15 minutes early. For virtual interviews, test your tech setup at least 30 minutes before.</p></div>
+      <div class="card"><div class="icon">&#9993;</div><h3>Follow Up</h3><p>Send a personalized thank-you email within 24 hours. Reference something specific from your conversation.</p></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>Interview Preparation Resources for Candidates</p>
+    <p><strong>Interviews for Dummies</strong> &mdash; Built to help candidates land the job.</p>
+    <p style="margin-top:0.5rem;">To add more position types, duplicate a position tab block in the HTML and add a matching button.</p>
+    <p style="margin-top:0.5rem;">&copy; 2026. All rights reserved.</p>
   </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    function toggleQA(el) {
+      el.classList.toggle('active');
+      const answer = el.nextElementSibling;
+      answer.classList.toggle('open');
+    }
+    function showPos(pos) {
+      document.querySelectorAll('.pos-content').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('.pos-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('pos-' + pos).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
 </body>
 </html>
