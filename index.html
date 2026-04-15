@@ -43,7 +43,6 @@ header{position:fixed;top:0;width:100%;z-index:100;background:rgba(15,15,35,0.97
 .cc .ci{font-size:3rem;margin-bottom:1rem}
 .cc h3{font-size:1.2rem;color:#fff;margin-bottom:0.5rem}
 .cc p{color:var(--text-muted);font-size:0.9rem}
-/* POSITION CARDS - sub-list hidden until hover */
 .pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
 .pc{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:border-color 0.3s,transform 0.3s;position:relative}
 .pc:hover{border-color:var(--accent);transform:translateY(-4px)}
@@ -79,7 +78,6 @@ header{position:fixed;top:0;width:100%;z-index:100;background:rgba(15,15,35,0.97
 .cs.active{display:block}
 .bb{display:inline-flex;align-items:center;gap:0.5rem;color:var(--accent);font-weight:600;cursor:pointer;background:none;border:none;font-size:1rem;margin-bottom:1.5rem}
 .bb:hover{color:var(--accent-light)}
-/* TIPS PAGE */
 .tg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
 .tc{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:transform 0.3s,border-color 0.3s}
 .tc:hover{transform:translateY(-4px);border-color:var(--accent)}
@@ -93,289 +91,442 @@ footer{text-align:center;padding:3rem 2rem;border-top:1px solid var(--border);co
 </head>
 <body>
 <header>
-<div class="header-top"><div class="logo"><span>Interview Ready</span></div></div>
-<div class="nav-tabs">
-<div class="nav-item"><a onclick="showPage('home')" class="active" id="nav-home">Home</a></div>
-<div class="nav-item"><a onclick="showPage('positions')" id="nav-positions">Positions &#9662;</a>
-<div class="nav-dropdown">
-<div class="dd-header">Attorneys</div>
-<a onclick="showQA('attorney-general')">General Attorney</a>
-<a onclick="showQA('insurance-defense')">Insurance Defense</a>
-<a onclick="showQA('real-estate')">Real Estate</a>
-<a onclick="showQA('workers-comp')">Workers' Comp</a>
-<a onclick="showQA('family-law')">Family Law</a>
-<a onclick="showQA('corporate')">Corporate / Transactional</a>
-<hr>
-<div class="dd-header">Legal Support Staff</div>
-<a onclick="showQA('paralegal')">Paralegal</a>
-<a onclick="showQA('legal-assistant')">Legal Assistant</a>
-<a onclick="showQA('legal-secretary')">Legal Secretary</a>
-<hr>
-<div class="dd-header">Financial Services</div>
-<a onclick="showQA('finance-general')">General Finance</a>
-<a onclick="showQA('compliance')">Compliance</a>
-<a onclick="showQA('accounting')">Accounting</a>
-<hr>
-<div class="dd-header">Engineering</div>
-<a onclick="showQA('eng-mechanical')">Mechanical Engineering</a>
-<a onclick="showQA('eng-civil')">Civil Engineering</a>
-<a onclick="showQA('eng-electrical')">Electrical Engineering</a>
-<a onclick="showQA('eng-structural')">Structural Engineering</a>
-<a onclick="showQA('eng-general')">General Engineering</a>
-</div>
-</div>
-<div class="nav-item"><a onclick="showPage('star')" id="nav-star">STAR Method</a></div>
-<div class="nav-item"><a onclick="showPage('tips')" id="nav-tips">Interview Tips</a></div>
-</div>
+  <div class="header-top">
+    <div class="logo">Interview <span>Ready</span></div>
+  </div>
+  <nav class="nav-tabs">
+    <div class="nav-item"><a id="nav-home" onclick="showPage('home')" class="active">Home</a></div>
+    <div class="nav-item">
+      <a id="nav-positions" onclick="showPage('positions')">Positions &#9660;</a>
+      <div class="nav-dropdown">
+        <div class="dd-header">Attorneys</div>
+        <a onclick="showQA('general')">General Attorney</a>
+        <a onclick="showQA('insurance')">Insurance Defense</a>
+        <a onclick="showQA('realestate')">Real Estate</a>
+        <a onclick="showQA('workerscomp')">Workers' Comp</a>
+        <a onclick="showQA('familylaw')">Family Law</a>
+        <a onclick="showQA('corporate')">Corporate / Transactional</a>
+        <hr/>
+        <div class="dd-header">Legal Support Staff</div>
+        <a onclick="showQA('paralegal')">Paralegal</a>
+        <a onclick="showQA('legalassistant')">Legal Assistant</a>
+        <a onclick="showQA('legalsecretary')">Legal Secretary</a>
+        <hr/>
+        <div class="dd-header">Financial Services</div>
+        <a onclick="showQA('finance')">General Finance</a>
+        <a onclick="showQA('compliance')">Compliance</a>
+        <a onclick="showQA('accounting')">Accounting</a>
+        <hr/>
+        <div class="dd-header">Engineering</div>
+        <a onclick="showQA('mechanical')">Mechanical Engineering</a>
+        <a onclick="showQA('civil')">Civil Engineering</a>
+        <a onclick="showQA('electrical')">Electrical Engineering</a>
+        <a onclick="showQA('structural')">Structural Engineering</a>
+        <a onclick="showQA('generaleng')">General Engineering</a>
+      </div>
+    </div>
+    <div class="nav-item"><a id="nav-star" onclick="showPage('star')">STAR Method</a></div>
+    <div class="nav-item"><a id="nav-tips" onclick="showPage('tips')">Interview Tips</a></div>
+  </nav>
 </header>
+
 <!-- HOME PAGE -->
 <div id="page-home" class="page active">
-<div class="hero">
-<div class="badge">Free Candidate Resource</div>
-<h1>We're Here to Help You <span>Succeed</span></h1>
-<p>Practical interview guidance built for legal and financial professionals. Select your position, explore common questions, and walk into your next interview with confidence.</p>
+  <div class="hero">
+    <div class="badge">Free Candidate Resource</div>
+    <h1>We're Here to Help You <span>Succeed</span></h1>
+    <p>Practical interview guidance built for legal and financial professionals. Select your position, explore common questions, and walk into your next interview with confidence.</p>
+  </div>
+  <div class="sw">
+    <h2>How This <span>Works</span></h2>
+    <div class="divider"></div>
+    <p class="subtitle">This guide is designed to help you prepare for interviews across multiple industries. Select your position type from the Positions tab above. Each category contains role-specific questions interviewers commonly ask, along with expert tips on how to structure strong answers using the STAR method.</p>
+    <h2 style="margin-top:2rem">Industries We <span>Serve</span></h2>
+    <div class="divider"></div>
+    <p class="subtitle">Our firm partners with clients across these industries to place top talent.</p>
+    <div class="cg">
+      <div class="cc"><div class="ci">&#9878;</div><h3>Law Firms</h3><p>From boutique practices to AmLaw firms, we place attorneys, paralegals, legal assistants, and secretaries across all practice areas.</p></div>
+      <div class="cc"><div class="ci">&#128200;</div><h3>CPA Firms</h3><p>We staff accounting professionals for public and private CPA firms, from staff accountants through partners and advisory roles.</p></div>
+      <div class="cc"><div class="ci">&#128296;</div><h3>Engineering</h3><p>We connect engineering firms with civil, mechanical, electrical, and structural talent for project-based and permanent placements.</p></div>
+      <div class="cc"><div class="ci">&#128161;</div><h3>Marketing</h3><p>We recruit marketing strategists, content creators, digital specialists, and brand managers for agencies and in-house teams.</p></div>
+    </div>
+  </div>
 </div>
-<div class="sw">
-<h2>How This <span>Works</span></h2>
-<div class="divider"></div>
-<p>This guide is designed to help you prepare for interviews across multiple industries. Select your position type from the Positions tab above. Each category contains role-specific questions interviewers commonly ask, along with expert tips on how to structure strong answers using the STAR method.</p>
-</div>
-<div class="sw">
-<h2>Industries We <span>Serve</span></h2>
-<div class="divider"></div>
-<p class="subtitle">Our firm partners with clients across these industries to place top talent.</p>
-<div class="cg">
-<div class="cc"><div class="ci">&#9878;</div><h3>Law Firms</h3><p>From boutique practices to AmLaw firms, we place attorneys, paralegals, legal assistants, and secretaries across all practice areas.</p></div>
-<div class="cc"><div class="ci">&#128200;</div><h3>CPA Firms</h3><p>We staff accounting professionals for public and private CPA firms, from staff accountants through partners and advisory roles.</p></div>
-<div class="cc"><div class="ci">&#128736;</div><h3>Engineering</h3><p>We connect engineering firms with civil, mechanical, electrical, and structural talent for project-based and permanent placements.</p></div>
-<div class="cc"><div class="ci">&#128161;</div><h3>Marketing</h3><p>We recruit marketing strategists, content creators, digital specialists, and brand managers for agencies and in-house teams.</p></div>
-</div>
-</div>
-</div>
+
 <!-- POSITIONS PAGE -->
 <div id="page-positions" class="page">
-<div class="sw">
-<h2>Select Your <span>Position</span></h2>
-<div class="divider"></div>
-<p class="subtitle">Hover over a category to reveal available roles, then click to view interview questions.</p>
-<div id="pos-grid" class="pg">
-<div class="pc"><div class="pci">&#9878;</div><h3>Attorneys</h3><p class="pdesc">All major practice areas.</p><div class="sl">
-<a onclick="showQA('attorney-general')"><span>General Attorney</span><span class="ar">&rarr;</span></a>
-<a onclick="showQA('insurance-defense')"><span>Insurance Defense</span><span class="ar">&rarr;</span></a>
-<a onclick="showQA('real-estate')"><span>Real Estate</span><span class="ar">&rarr;</span></a>
-<a onclick="showQA('workers-comp')"><span>Workers' Comp</span><span class="ar">&rarr;</span></a>
-<a onclick="showQA('family-law')"><span>Family Law</span><span class="ar">&rarr;</span></a>
-<a onclick="showQA('corporate')"><span>Corporate / Transactional</span><span class="ar">&rarr;</span></a>
-</div></div>
-<div class="pc"><div class="pci">&#128221;</div><h3>Legal Support Staff</h3><p class="pdesc">Paralegals, assistants, and secretaries.</p><div class="sl">
-<a onclick="showQA('paralegal')"><span>Paralegal</span><span class="ar">&rarr;</span></a>
-<a onclick="showQA('legal-assistant')"><span>Legal Assistant</span><span class="ar">&rarr;</span></a>
-<a onclick="showQA('legal-secretary')"><span>Legal Secretary</span><span class="ar">&rarr;</span></a>
-</div></div>
-<div class="pc"><div class="pci">&#128200;</div><h3>Financial Services</h3><p class="pdesc">Finance, compliance, and accounting.</p><div class="sl">
-<a onclick="showQA('finance-general')"><span>General Finance</span><span class="ar">&rarr;</span></a>
-<a onclick="showQA('compliance')"><span>Compliance</span><span class="ar">&rarr;</span></a>
-<a onclick="showQA('accounting')"><span>Accounting</span><span class="ar">&rarr;</span></a>
-</div></div>
-<div class="pc"><div class="pci">&#128736;</div><h3>Engineering</h3><p class="pdesc">Civil, mechanical, electrical, and more.</p><div class="sl">
-<a onclick="showQA('eng-mechanical')"><span>Mechanical Engineering</span><span class="ar">&rarr;</span></a>
-<a onclick="showQA('eng-civil')"><span>Civil Engineering</span><span class="ar">&rarr;</span></a>
-<a onclick="showQA('eng-electrical')"><span>Electrical Engineering</span><span class="ar">&rarr;</span></a>
-<a onclick="showQA('eng-structural')"><span>Structural Engineering</span><span class="ar">&rarr;</span></a>
-<a onclick="showQA('eng-general')"><span>General Engineering</span><span class="ar">&rarr;</span></a>
-</div></div>
+  <div class="sw">
+    <h2>Select Your <span>Position</span></h2>
+    <div class="divider"></div>
+    <p class="subtitle">Hover over a category to reveal available roles, then click to view interview questions.</p>
+    <div id="pos-grid" class="pg">
+      <div class="pc">
+        <div class="pci">&#9878;</div>
+        <h3>Attorneys</h3>
+        <p class="pdesc">All major practice areas.</p>
+        <div class="sl">
+          <a onclick="showQA('general')">General Attorney <span class="ar">&#8594;</span></a>
+          <a onclick="showQA('insurance')">Insurance Defense <span class="ar">&#8594;</span></a>
+          <a onclick="showQA('realestate')">Real Estate <span class="ar">&#8594;</span></a>
+          <a onclick="showQA('workerscomp')">Workers' Comp <span class="ar">&#8594;</span></a>
+          <a onclick="showQA('familylaw')">Family Law <span class="ar">&#8594;</span></a>
+          <a onclick="showQA('corporate')">Corporate / Transactional <span class="ar">&#8594;</span></a>
+        </div>
+      </div>
+      <div class="pc">
+        <div class="pci">&#128221;</div>
+        <h3>Legal Support Staff</h3>
+        <p class="pdesc">Paralegals, assistants, and secretaries.</p>
+        <div class="sl">
+          <a onclick="showQA('paralegal')">Paralegal <span class="ar">&#8594;</span></a>
+          <a onclick="showQA('legalassistant')">Legal Assistant <span class="ar">&#8594;</span></a>
+          <a onclick="showQA('legalsecretary')">Legal Secretary <span class="ar">&#8594;</span></a>
+        </div>
+      </div>
+      <div class="pc">
+        <div class="pci">&#128200;</div>
+        <h3>Financial Services</h3>
+        <p class="pdesc">Finance, compliance, and accounting.</p>
+        <div class="sl">
+          <a onclick="showQA('finance')">General Finance <span class="ar">&#8594;</span></a>
+          <a onclick="showQA('compliance')">Compliance <span class="ar">&#8594;</span></a>
+          <a onclick="showQA('accounting')">Accounting <span class="ar">&#8594;</span></a>
+        </div>
+      </div>
+      <div class="pc">
+        <div class="pci">&#128295;</div>
+        <h3>Engineering</h3>
+        <p class="pdesc">Civil, mechanical, electrical, and more.</p>
+        <div class="sl">
+          <a onclick="showQA('mechanical')">Mechanical Engineering <span class="ar">&#8594;</span></a>
+          <a onclick="showQA('civil')">Civil Engineering <span class="ar">&#8594;</span></a>
+          <a onclick="showQA('electrical')">Electrical Engineering <span class="ar">&#8594;</span></a>
+          <a onclick="showQA('structural')">Structural Engineering <span class="ar">&#8594;</span></a>
+          <a onclick="showQA('generaleng')">General Engineering <span class="ar">&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- GENERAL ATTORNEY -->
+    <div id="qa-general" class="cs">
+      <div class="sw">
+        <button class="bb" onclick="hideQA()">&#8592; Back to Positions</button>
+        <h2>General <span>Attorney</span></h2>
+        <div class="divider"></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Why did you choose this practice area? <span class="arrow">&#9660;</span></div><div class="qa"><p>Connect to a genuine interest or formative experience. Reference specific cases, coursework, or mentors.</p><div class="tip"><strong>Tip:</strong> Mention a specific moment that ignited your passion.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you manage a heavy caseload? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe calendaring tools, task prioritization, and communication with partners about bandwidth.</p><div class="tip"><strong>Tip:</strong> Name specific tools like practice management software.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Tell me about a difficult opposing counsel situation. <span class="arrow">&#9660;</span></div><div class="qa"><p>Use STAR. Focus on professionalism and de-escalation.</p><div class="tip"><strong>Tip:</strong> Never badmouth opposing counsel.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">What is your approach to business development? <span class="arrow">&#9660;</span></div><div class="qa"><p>Discuss networking, industry involvement, writing, and referral relationships.</p><div class="tip"><strong>Tip:</strong> Even juniors should show BD awareness.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Describe a time you made an error on a case. <span class="arrow">&#9660;</span></div><div class="qa"><p>Choose a recoverable mistake. Walk through what happened and safeguards you added.</p><div class="tip"><strong>Tip:</strong> Firms value accountability.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Why are you looking to leave your current firm? <span class="arrow">&#9660;</span></div><div class="qa"><p>Frame around what you are moving toward: growth, alignment, culture.</p><div class="tip"><strong>Tip:</strong> Never speak negatively about your current employer.</div></div></div>
+      </div>
+    </div>
+
+    <!-- INSURANCE DEFENSE -->
+    <div id="qa-insurance" class="cs">
+      <div class="sw">
+        <button class="bb" onclick="hideQA()">&#8592; Back to Positions</button>
+        <h2>Insurance <span>Defense</span></h2>
+        <div class="divider"></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">What is your experience defending carriers and insureds? <span class="arrow">&#9660;</span></div><div class="qa"><p>Detail carrier types, coverage lines, and your litigation lifecycle role.</p><div class="tip"><strong>Tip:</strong> Name carrier clients if permitted.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle carrier billing guidelines? <span class="arrow">&#9660;</span></div><div class="qa"><p>Discuss rate caps, task-based billing, and budget management.</p><div class="tip"><strong>Tip:</strong> Show you understand cost-efficient defense.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your coverage analysis experience. <span class="arrow">&#9660;</span></div><div class="qa"><p>Walk through policy review, coverage issues, and ROR letters.</p><div class="tip"><strong>Tip:</strong> Dual coverage/defense perspective is a strength.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you evaluate early resolution vs. trial? <span class="arrow">&#9660;</span></div><div class="qa"><p>Explain liability exposure, damages, costs, limits, and risk appetite analysis.</p><div class="tip"><strong>Tip:</strong> Think total cost of defense, not just win/loss.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you manage the tripartite relationship between carrier, insured, and counsel? <span class="arrow">&#9660;</span></div><div class="qa"><p>Explain how you keep the insured informed, manage conflicts between insured and carrier interests, and maintain ethical duties to both parties throughout the litigation.</p><div class="tip"><strong>Tip:</strong> Mention Cumis counsel situations if you have that experience — it shows sophisticated understanding of insurance defense ethics.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">What is your trial experience in insurance defense matters? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe the number and types of trials, your role as lead or second chair, jurisdictions, and outcomes. Include arbitration and deposition experience as well.</p><div class="tip"><strong>Tip:</strong> If trial experience is limited, highlight strong motion practice and deposition skills as complementary strengths.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you stay current with changes in insurance law and coverage trends? <span class="arrow">&#9660;</span></div><div class="qa"><p>Reference DRI, FDCC, state defense bar publications, Westlaw alerts, and internal firm updates. Mention any articles or presentations you have produced on emerging issues.</p><div class="tip"><strong>Tip:</strong> Carriers want lawyers who proactively educate them on emerging risks, not just react to claims as they come in.</div></div></div>
+      </div>
+    </div>
+
+    <!-- REAL ESTATE ATTORNEY -->
+    <div id="qa-realestate" class="cs">
+      <div class="sw">
+        <button class="bb" onclick="hideQA()">&#8592; Back to Positions</button>
+        <h2>Real Estate <span>Attorney</span></h2>
+        <div class="divider"></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">What types of real estate transactions have you handled? <span class="arrow">&#9660;</span></div><div class="qa"><p>Break down by type and deal size: acquisitions, leasing, financing, development.</p><div class="tip"><strong>Tip:</strong> Quantify. $50M+ carries weight.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you approach due diligence? <span class="arrow">&#9660;</span></div><div class="qa"><p>Title, survey, environmental, zoning, lease abstracts, estoppels.</p><div class="tip"><strong>Tip:</strong> Show systematic thoroughness.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Describe a deal that hit a major obstacle. <span class="arrow">&#9660;</span></div><div class="qa"><p>Use STAR. Show creative problem-solving.</p><div class="tip"><strong>Tip:</strong> Partners want solution-finders.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle title issues and survey defects discovered during closing? <span class="arrow">&#9660;</span></div><div class="qa"><p>Walk through your process for clearing title exceptions: negotiating endorsements, obtaining gap indemnities, resolving survey defects, and working with title companies under tight timelines.</p><div class="tip"><strong>Tip:</strong> Show you can problem-solve at the closing table. Deals fall apart over title issues — firms want attorneys who can clear them fast.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your experience with commercial lease negotiations. <span class="arrow">&#9660;</span></div><div class="qa"><p>Discuss landlord vs. tenant representation, key deal points (rent abatement, TI allowances, exclusivity clauses, termination rights), and how you balance leverage with deal preservation.</p><div class="tip"><strong>Tip:</strong> Mention lease types: NNN, gross, ground leases. Breadth across asset classes (office, retail, industrial) is a differentiator.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you advise clients on zoning, land use, and entitlement matters? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe your experience with variance applications, conditional use permits, rezoning petitions, and working with municipalities. Explain how you manage client expectations through long approval timelines.</p><div class="tip"><strong>Tip:</strong> Entitlement experience is highly valued in development-focused practices. Show familiarity with local planning boards and approval processes.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">What is your experience with real estate finance and secured lending transactions? <span class="arrow">&#9660;</span></div><div class="qa"><p>Discuss construction loans, permanent financing, mezzanine debt, CMBS loans, and intercreditor agreements. Describe your role on lender-side vs. borrower-side deals and how you manage complex multi-party closings.</p><div class="tip"><strong>Tip:</strong> Lender-side experience is particularly marketable. If you have both sides, say so — it shows you understand the full transaction picture.</div></div></div>
+      </div>
+    </div>
+
+    <!-- WORKERS COMP -->
+    <div id="qa-workerscomp" class="cs">
+      <div class="sw">
+        <button class="bb" onclick="hideQA()">&#8592; Back to Positions</button>
+        <h2>Workers' <span>Comp</span></h2>
+        <div class="divider"></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Do you represent claimants, employers, or carriers? <span class="arrow">&#9660;</span></div><div class="qa"><p>State your side clearly. Mention caseload volume and injury types.</p><div class="tip"><strong>Tip:</strong> Workers' comp firms are side-specific.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle disputed claims? <span class="arrow">&#9660;</span></div><div class="qa"><p>Evidence gathering: medical records, witness statements, IME coordination.</p><div class="tip"><strong>Tip:</strong> Show administrative hearing knowledge.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">What is your MSA and settlement experience? <span class="arrow">&#9660;</span></div><div class="qa"><p>Discuss MSA allocations, CMS submissions, and structured settlements.</p><div class="tip"><strong>Tip:</strong> MSA knowledge is increasingly valuable.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you manage independent medical examinations and medical evidence? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe how you select and prepare IME physicians, challenge treating physician opinions, use vocational experts, and handle medical records review to build or defend against permanent disability claims.</p><div class="tip"><strong>Tip:</strong> Strong IME management can change the value of a case significantly. Show you have a reliable network of qualified medical examiners.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your experience with permanent disability ratings and apportionment. <span class="arrow">&#9660;</span></div><div class="qa"><p>Explain how you use AMA Guides or state-specific rating systems, challenge inflated permanent disability ratings, argue apportionment to pre-existing conditions, and negotiate final awards at the board level.</p><div class="tip"><strong>Tip:</strong> Apportionment arguments can dramatically reduce employer/carrier exposure. Show you actively pursue them rather than accepting claimant ratings at face value.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle subrogation and third-party claims in workers' comp matters? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe how you identify third-party liability (products, premises, motor vehicle), coordinate with civil litigators, assert employer/carrier liens, and maximize recovery to offset claim costs.</p><div class="tip"><strong>Tip:</strong> Subrogation recovery directly reduces net claim costs. Employers and carriers value attorneys who proactively identify and pursue these opportunities.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you advise employers on return-to-work programs and light duty compliance? <span class="arrow">&#9660;</span></div><div class="qa"><p>Explain how you help employers structure modified duty offers, ensure FMLA/ADA compliance when injuries overlap, document good-faith efforts to accommodate, and defend against retaliation claims.</p><div class="tip"><strong>Tip:</strong> Return-to-work programs reduce indemnity costs substantially. Advising proactively on compliance, not just litigating claims, makes you far more valuable to employer clients.</div></div></div>
+      </div>
+    </div>
+
+    <!-- FAMILY LAW -->
+    <div id="qa-familylaw" class="cs">
+      <div class="sw">
+        <button class="bb" onclick="hideQA()">&#8592; Back to Positions</button>
+        <h2>Family <span>Law</span></h2>
+        <div class="divider"></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle high-conflict custody disputes? <span class="arrow">&#9660;</span></div><div class="qa"><p>Discuss managing emotional clients, GALs, and best-interests evidence.</p><div class="tip"><strong>Tip:</strong> Demonstrate emotional intelligence.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">What is your experience with complex asset division? <span class="arrow">&#9660;</span></div><div class="qa"><p>Business valuations, QDROs, stock options, forensic accountants.</p><div class="tip"><strong>Tip:</strong> Show financial literacy.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you approach settlement negotiations? <span class="arrow">&#9660;</span></div><div class="qa"><p>Mediation experience, collaborative law, realistic outcome preparation.</p><div class="tip"><strong>Tip:</strong> Courts favor settlement. Show negotiation skill.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle domestic violence or restraining order situations? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe your experience with emergency protective orders, DVRO hearings, and safety planning for clients. Discuss how you document evidence, coordinate with law enforcement, and advise clients on custody implications when domestic violence is a factor.</p><div class="tip"><strong>Tip:</strong> Show you understand both the legal process and the emotional weight. Firms want attorneys who can act quickly while keeping clients grounded in the legal realities.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you approach parental relocation disputes? <span class="arrow">&#9660;</span></div><div class="qa"><p>Explain the legal standard in your jurisdiction for relocation, how you build or oppose a relocation petition, and how you handle best-interests factors such as distance, school continuity, and the non-relocating parent's relationship with the child.</p><div class="tip"><strong>Tip:</strong> Relocation cases are emotionally charged and legally complex. Show you understand both the statutory framework and the practical impact on parenting time schedules.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your experience with guardianship and adoption matters. <span class="arrow">&#9660;</span></div><div class="qa"><p>Discuss the types of guardianships you have handled (minor, adult, emergency) and any adoption experience (stepparent, private, agency, international). Describe the court process, home study coordination, and how you counsel families through these proceedings.</p><div class="tip"><strong>Tip:</strong> Many family law practices include guardianship and adoption. Demonstrating breadth across these matters shows you can serve the full spectrum of family law clients.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you advise clients on post-decree modifications and enforcement? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe your experience with motions to modify custody, support, or parenting time based on substantial change in circumstances. Discuss how you enforce orders through contempt proceedings, wage garnishment, or license suspension, and how you advise clients on when modification is worth pursuing versus accepting the current order.</p><div class="tip"><strong>Tip:</strong> Post-decree work is a steady revenue driver for family law firms. Show you are comfortable handling both the initial decree and the years of follow-on work that often follows.</div></div></div>
+      </div>
+    </div>
+
+    <!-- CORPORATE / TRANSACTIONAL -->
+    <div id="qa-corporate" class="cs">
+      <div class="sw">
+        <button class="bb" onclick="hideQA()">&#8592; Back to Positions</button>
+        <h2>Corporate / <span>Transactional</span></h2>
+        <div class="divider"></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">What transactions have you worked on? <span class="arrow">&#9660;</span></div><div class="qa"><p>M&amp;A, PE, VC, general corporate. Specify deal sizes and your responsibility level.</p><div class="tip"><strong>Tip:</strong> Be honest about your role. Credibility matters.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you manage multiple closings? <span class="arrow">&#9660;</span></div><div class="qa"><p>Closing checklists, signature pages, escrow coordination.</p><div class="tip"><strong>Tip:</strong> Show you are organized under pressure.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Walk me through negotiating a purchase agreement provision. <span class="arrow">&#9660;</span></div><div class="qa"><p>Pick one you know: indemnification, reps, earnouts. Explain risk allocation.</p><div class="tip"><strong>Tip:</strong> Pick something you have actually negotiated.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle due diligence in M&amp;A transactions? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe how you organize and manage due diligence workstreams, coordinate with client teams and specialists (tax, IP, employment), identify material risks, and summarize findings for deal principals. Discuss your experience with data room management and diligence memo drafting.</p><div class="tip"><strong>Tip:</strong> Due diligence efficiency separates strong transactional associates from average ones. Show you can run a workstream, not just participate in one.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your experience with representations, warranties, and indemnification provisions. <span class="arrow">&#9660;</span></div><div class="qa"><p>Explain how you negotiate the scope of reps and warranties, survival periods, materiality qualifiers, knowledge qualifiers, and indemnification baskets and caps. Describe how you advise clients on risk allocation and when to push back on buyer or seller requests.</p><div class="tip"><strong>Tip:</strong> R&amp;W negotiation is core transactional work. Be ready to explain specific provisions you have negotiated and the business rationale behind your positions.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">What is your experience with private equity or venture capital transactions? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe the types of PE or VC transactions you have handled: LBOs, growth equity, recapitalizations, or early-stage financings. Discuss your experience with management equity plans, preferred stock terms, board governance, and working with sponsor clients under tight timelines.</p><div class="tip"><strong>Tip:</strong> PE and VC clients are demanding and repeat buyers of legal services. Showing comfort with sponsor dynamics and speed-to-close expectations is a major differentiator.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you manage client communication and deal timelines under pressure? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe how you keep deal teams aligned, manage expectations with clients and opposing counsel, track open issues lists, and push deals to close when momentum stalls. Discuss how you handle competing closings and communicate bandwidth limitations to senior attorneys.</p><div class="tip"><strong>Tip:</strong> Deals die from poor communication as often as from legal issues. Show you are a proactive communicator who keeps everyone moving toward the finish line.</div></div></div>
+      </div>
+    </div>
+
+    <!-- PARALEGAL -->
+    <div id="qa-paralegal" class="cs">
+      <div class="sw">
+        <button class="bb" onclick="hideQA()">&#8592; Back to Positions</button>
+        <h2> <span>Paralegal</span></h2>
+        <div class="divider"></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">What types of cases have you supported? <span class="arrow">&#9660;</span></div><div class="qa"><p>Drafting discovery, document review, depositions, motions, case calendars.</p><div class="tip"><strong>Tip:</strong> Be specific about volume and complexity.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you prioritize when multiple attorneys need help? <span class="arrow">&#9660;</span></div><div class="qa"><p>Check deadlines, distinguish court dates from internal, communicate bandwidth.</p><div class="tip"><strong>Tip:</strong> Be proactive, not reactive.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">What legal software are you proficient in? <span class="arrow">&#9660;</span></div><div class="qa"><p>Westlaw, LexisNexis, Relativity, NetDocuments, Clio, iManage.</p><div class="tip"><strong>Tip:</strong> If unfamiliar with a tool, show you learn quickly.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your experience drafting and responding to discovery. <span class="arrow">&#9660;</span></div><div class="qa"><p>Walk through your experience preparing interrogatories, requests for production, requests for admission, and responses. Describe how you organize document productions, apply privilege logs, and coordinate with vendors for large-scale document review projects.</p><div class="tip"><strong>Tip:</strong> Discovery is where paralegals prove their value. Show you can manage the full lifecycle, not just hand documents to attorneys.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How have you supported attorneys during depositions and trial preparation? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe your role in scheduling depositions, preparing deposition binders, summarizing transcripts, organizing trial exhibits, preparing witness files, and coordinating logistics. Discuss any experience assisting at trial as a second chair support resource.</p><div class="tip"><strong>Tip:</strong> Paralegals who can run a trial prep room are extremely valuable. Show you understand the entire deposition and trial workflow from scheduling through post-trial tasks.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you maintain accuracy when working on high-volume or repetitive tasks? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe the quality-control habits you use: checklists, double-verification on dates and case numbers, peer review, and systematic file organization. Use a specific example where your attention to detail caught a critical error before it became a problem.</p><div class="tip"><strong>Tip:</strong> Accuracy is the top trait firms look for in paralegals. Give a concrete story, not just a general answer about being detail-oriented.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Tell me about a time you identified an issue an attorney had missed. <span class="arrow">&#9660;</span></div><div class="qa"><p>Use STAR. Describe the situation, how you identified the issue (a missed deadline, a conflicting date, an incorrect party name, a gap in a document), how you raised it professionally, and the outcome. Focus on how you communicate concerns without overstepping your role.</p><div class="tip"><strong>Tip:</strong> This question tests both competence and professional judgment. Firms want paralegals who are sharp enough to catch errors and confident enough to speak up — without creating friction with attorneys.</div></div></div>
+      </div>
+    </div>
+
+    <!-- LEGAL ASSISTANT -->
+    <div id="qa-legalassistant" class="cs">
+      <div class="sw">
+        <button class="bb" onclick="hideQA()">&#8592; Back to Positions</button>
+        <h2>Legal <span>Assistant</span></h2>
+        <div class="divider"></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">What administrative and legal tasks are you experienced with? <span class="arrow">&#9660;</span></div><div class="qa"><p>Calendar management, correspondence, filing, client intake, expenses.</p><div class="tip"><strong>Tip:</strong> Show range across admin and substantive work.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle confidential information? <span class="arrow">&#9660;</span></div><div class="qa"><p>Attorney-client privilege, secure handling, data security practices.</p><div class="tip"><strong>Tip:</strong> Mention locked workstations, encrypted email, secure shredding.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you support a busy attorney when unexpected urgent work comes in? <span class="arrow">&#9660;</span></div><div class="qa"><p>Use STAR. Describe a time when a rush task disrupted your planned day. Walk through how you reprioritized, communicated any impact on other deadlines, and ensured both the urgent and standing work got completed. Show grace under pressure.</p><div class="tip"><strong>Tip:</strong> Attorneys value assistants who adapt without drama. Show that you stay calm, solve the problem, and communicate proactively rather than waiting to be told what to drop.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your experience with client intake and managing client communications. <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe how you handle initial client contact, gather information for new matters, set up files, and manage ongoing client communication on behalf of attorneys. Discuss how you balance being responsive to clients while keeping attorneys appropriately in the loop.</p><div class="tip"><strong>Tip:</strong> Client intake sets the tone for the entire relationship. Show you understand the importance of a professional, organized first impression and know when to escalate to the attorney versus handle independently.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">What experience do you have with billing, timekeeping, and expense tracking? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe your experience entering attorney time, preparing draft invoices, tracking disbursements, and following up on accounts receivable. Mention any billing platforms you have used (Aderant, Juris, Tabs3, QuickBooks, or Elite) and how you ensure accuracy in billing entries.</p><div class="tip"><strong>Tip:</strong> Billing accuracy directly affects firm revenue. Showing experience in billing and collections, even at an entry level, is a significant differentiator for legal assistant candidates.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle situations where you are asked to do something you are unsure about? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe your approach to asking clarifying questions, confirming instructions before proceeding, and knowing when to escalate uncertainty rather than guess. Give a specific example of a time you paused on a task to verify and explain how that decision helped avoid a mistake.</p><div class="tip"><strong>Tip:</strong> Legal work has zero tolerance for assumptions. Firms want assistants who ask smart questions and confirm before acting, not ones who barrel through uncertain tasks and create problems to fix later.</div></div></div>
+      </div>
+    </div>
+
+    <!-- LEGAL SECRETARY -->
+    <div id="qa-legalsecretary" class="cs">
+      <div class="sw">
+        <button class="bb" onclick="hideQA()">&#8592; Back to Positions</button>
+        <h2>Legal <span>Secretary</span></h2>
+        <div class="divider"></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">What document management systems do you know? <span class="arrow">&#9660;</span></div><div class="qa"><p>iManage, NetDocuments, Worldox. TOA, TOC, blue-backing, court standards.</p><div class="tip"><strong>Tip:</strong> Formatting precision matters. Show court-specific knowledge.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you manage deadlines for multiple attorneys? <span class="arrow">&#9660;</span></div><div class="qa"><p>Docketing approach, reminder systems, proactive confirmation.</p><div class="tip"><strong>Tip:</strong> A missed deadline can end a case. Show safeguards.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your experience with court filing procedures and e-filing systems. <span class="arrow">&#9660;</span></div><div class="qa"><p>Walk through your experience with local, state, and federal court filing requirements. Describe the e-filing platforms you have used (CM/ECF, Tyler File &amp; Serve, Odyssey, CourtDrive), how you verify filing confirmation, and how you handle rejected filings or technical issues close to a deadline.</p><div class="tip"><strong>Tip:</strong> Court filing errors can have serious consequences. Show you double-check every submission, understand the specific requirements of each court, and have a protocol for deadline days.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you prepare and format legal documents for attorney review and court submission? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe your proficiency with legal document formatting: tables of authority (TOA), tables of contents (TOC), blue-backing, exhibit tabs, signature blocks, and court-specific formatting rules. Explain how you proofread for consistency in citations, headings, and page numbering before a document goes out.</p><div class="tip"><strong>Tip:</strong> Formatting precision is a core legal secretary skill. Show you understand that a brief filed with incorrect formatting or citation errors reflects on the firm, and that you take responsibility for getting it right before it leaves your desk.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you manage attorney travel, scheduling, and meeting coordination? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe your experience managing complex calendars, booking travel, scheduling depositions and hearings across multiple time zones, coordinating conference calls, and preparing meeting materials. Discuss how you anticipate conflicts and keep attorneys informed of schedule changes.</p><div class="tip"><strong>Tip:</strong> Attorneys rely on their secretaries to own the calendar completely. Show you are organized, anticipate needs before being asked, and protect attorney time proactively.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle communication with opposing counsel, courts, and clients? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe how you draft professional correspondence on behalf of attorneys, manage incoming calls and emails from clients and opposing counsel, and handle sensitive information with discretion. Discuss how you filter communications, knowing what to handle independently versus what requires attorney attention immediately.</p><div class="tip"><strong>Tip:</strong> Legal secretaries are the front line of communication for a practice. Show you project professionalism, understand confidentiality, and know how to manage client relationships without overstepping your authority.</div></div></div>
+      </div>
+    </div>
+
+    <!-- GENERAL FINANCE -->
+    <div id="qa-finance" class="cs">
+      <div class="sw">
+        <button class="bb" onclick="hideQA()">&#8592; Back to Positions</button>
+        <h2>General <span>Finance</span></h2>
+        <div class="divider"></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you approach risk assessment? <span class="arrow">&#9660;</span></div><div class="qa"><p>Data review, stakeholder consultation, scenario modeling.</p><div class="tip"><strong>Tip:</strong> Balance thoroughness with practicality.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Describe finding a discrepancy in financial data. <span class="arrow">&#9660;</span></div><div class="qa"><p>Use STAR: what you found, impact, investigation, controls recommended.</p><div class="tip"><strong>Tip:</strong> Prove attention to detail with a real story.</div></div></div>
+      </div>
+    </div>
+
+    <!-- COMPLIANCE -->
+    <div id="qa-compliance" class="cs">
+      <div class="sw">
+        <button class="bb" onclick="hideQA()">&#8592; Back to Positions</button>
+        <h2> <span>Compliance</span></h2>
+        <div class="divider"></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Walk me through your regulatory compliance experience. <span class="arrow">&#9660;</span></div><div class="qa"><p>SEC, FINRA, SOX, AML/KYC. Your role in audits and policy implementation.</p><div class="tip"><strong>Tip:</strong> Reference regulations by name.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you balance business objectives with compliance? <span class="arrow">&#9660;</span></div><div class="qa"><p>Work with business teams to find compliant paths forward.</p><div class="tip"><strong>Tip:</strong> Be an enabler, not a blocker.</div></div></div>
+      </div>
+    </div>
+
+    <!-- ACCOUNTING -->
+    <div id="qa-accounting" class="cs">
+      <div class="sw">
+        <button class="bb" onclick="hideQA()">&#8592; Back to Positions</button>
+        <h2> <span>Accounting</span></h2>
+        <div class="divider"></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Walk me through your month-end close process. <span class="arrow">&#9660;</span></div><div class="qa"><p>Journal entries, accruals, reconciliations, variance analysis, timelines.</p><div class="tip"><strong>Tip:</strong> Mention how you improved close speed or accuracy.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">What accounting software are you experienced with? <span class="arrow">&#9660;</span></div><div class="qa"><p>QuickBooks, Sage, NetSuite, SAP, Oracle. Advanced Excel, automation.</p><div class="tip"><strong>Tip:</strong> Built automated reports? That differentiates you.</div></div></div>
+      </div>
+    </div>
+
+    <!-- MECHANICAL ENGINEERING -->
+    <div id="qa-mechanical" class="cs">
+      <div class="sw">
+        <button class="bb" onclick="hideQA()">&#8592; Back to Positions</button>
+        <h2>Mechanical <span>Engineering</span></h2>
+        <div class="divider"></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Describe a complex mechanical system you designed or improved. <span class="arrow">&#9660;</span></div><div class="qa"><p>Use STAR. Walk through requirements, constraints, your design decisions, and the outcome.</p><div class="tip"><strong>Tip:</strong> Quantify performance improvements (efficiency %, cost savings, weight reduction).</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">What CAD and simulation tools are you proficient in? <span class="arrow">&#9660;</span></div><div class="qa"><p>SolidWorks, AutoCAD, CATIA, ANSYS, MATLAB. Describe real projects where you used them.</p><div class="tip"><strong>Tip:</strong> Mention FEA or CFD experience if applicable.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you approach failure analysis? <span class="arrow">&#9660;</span></div><div class="qa"><p>Root cause analysis process: visual inspection, testing, material review, stress analysis.</p><div class="tip"><strong>Tip:</strong> Show systematic thinking and cross-functional collaboration.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Tell me about a time a project was behind schedule. <span class="arrow">&#9660;</span></div><div class="qa"><p>Use STAR. Focus on how you identified the delay, communicated it, and recovered.</p><div class="tip"><strong>Tip:</strong> Show ownership and proactive communication.</div></div></div>
+      </div>
+    </div>
+
+    <!-- CIVIL ENGINEERING -->
+    <div id="qa-civil" class="cs">
+      <div class="sw">
+        <button class="bb" onclick="hideQA()">&#8592; Back to Positions</button>
+        <h2>Civil <span>Engineering</span></h2>
+        <div class="divider"></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">What types of civil projects have you worked on? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe project types: roads, bridges, drainage, site development. Mention scale and your role.</p><div class="tip"><strong>Tip:</strong> Reference permit processes, municipal codes, and agency coordination.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle site constraints and environmental considerations? <span class="arrow">&#9660;</span></div><div class="qa"><p>Wetlands, floodplains, soil conditions, right-of-way. Describe how you navigated them on a real project.</p><div class="tip"><strong>Tip:</strong> Mention NEPA, NPDES, or local environmental review experience.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your experience with AutoCAD Civil 3D or similar tools. <span class="arrow">&#9660;</span></div><div class="qa"><p>Grading, alignment, profiles, cross-sections. Describe real deliverables you produced.</p><div class="tip"><strong>Tip:</strong> Mention GIS integration if applicable.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you coordinate with contractors during construction? <span class="arrow">&#9660;</span></div><div class="qa"><p>RFI process, submittals, site visits, punch lists, change order management.</p><div class="tip"><strong>Tip:</strong> Show you understand both design and field execution.</div></div></div>
+      </div>
+    </div>
+
+    <!-- ELECTRICAL ENGINEERING -->
+    <div id="qa-electrical" class="cs">
+      <div class="sw">
+        <button class="bb" onclick="hideQA()">&#8592; Back to Positions</button>
+        <h2>Electrical <span>Engineering</span></h2>
+        <div class="divider"></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Describe a power systems or controls project you led or contributed to. <span class="arrow">&#9660;</span></div><div class="qa"><p>Use STAR. Describe the system, your design responsibilities, and measurable outcomes.</p><div class="tip"><strong>Tip:</strong> Mention relevant codes: NEC, IEEE, NFPA 70E.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">What electrical design software are you experienced with? <span class="arrow">&#9660;</span></div><div class="qa"><p>AutoCAD Electrical, ETAP, SKM, MATLAB/Simulink, EPLAN, Revit MEP.</p><div class="tip"><strong>Tip:</strong> Be specific about what you designed, not just what you know.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you approach electrical safety and compliance? <span class="arrow">&#9660;</span></div><div class="qa"><p>Arc flash studies, LOTO procedures, equipment ratings, code compliance review.</p><div class="tip"><strong>Tip:</strong> Mention experience with AHJ coordination if relevant.</div></div></div>
+      </div>
+    </div>
+
+    <!-- STRUCTURAL ENGINEERING -->
+    <div id="qa-structural" class="cs">
+      <div class="sw">
+        <button class="bb" onclick="hideQA()">&#8592; Back to Positions</button>
+        <h2>Structural <span>Engineering</span></h2>
+        <div class="divider"></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">What types of structures have you designed? <span class="arrow">&#9660;</span></div><div class="qa"><p>Steel, concrete, masonry, wood. Describe building types, loads, and your design role.</p><div class="tip"><strong>Tip:</strong> Reference IBC, ASCE 7, ACI 318, AISC as applicable.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle seismic or wind load design? <span class="arrow">&#9660;</span></div><div class="qa"><p>Lateral force resisting systems, load combinations, drift limits, diaphragm design.</p><div class="tip"><strong>Tip:</strong> Mention specific projects where lateral loads drove design decisions.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your structural analysis software experience. <span class="arrow">&#9660;</span></div><div class="qa"><p>ETABS, SAP2000, RISA, RAM, Revit Structure. Describe models you built and validated.</p><div class="tip"><strong>Tip:</strong> Mention hand calculation verification — firms value engineers who check software output.</div></div></div>
+      </div>
+    </div>
+
+    <!-- GENERAL ENGINEERING -->
+    <div id="qa-generaleng" class="cs">
+      <div class="sw">
+        <button class="bb" onclick="hideQA()">&#8592; Back to Positions</button>
+        <h2>General <span>Engineering</span></h2>
+        <div class="divider"></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you manage competing priorities on a project? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe your prioritization method: deadline-driven, risk-based, stakeholder input.</p><div class="tip"><strong>Tip:</strong> Use a real example with measurable outcomes.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">Tell me about a time you solved a problem no one else had figured out. <span class="arrow">&#9660;</span></div><div class="qa"><p>Use STAR. Show technical creativity and persistence.</p><div class="tip"><strong>Tip:</strong> This is a signature story — prepare it carefully.</div></div></div>
+        <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you stay current with engineering codes and technologies? <span class="arrow">&#9660;</span></div><div class="qa"><p>Professional memberships (ASCE, ASME, IEEE), continuing ed, internal lunch-and-learns, code cycle updates.</p><div class="tip"><strong>Tip:</strong> Mention a recent change you implemented at work.</div></div></div>
+      </div>
+    </div>
+
+  </div>
 </div>
-<div id="qa-wrap" style="max-width:1000px;margin:0 auto;padding:0 2rem 3rem">
-<div id="qa-attorney-general" class="cs"><button class="bb" onclick="hideQA()">&larr; Back to Positions</button>
-<div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem">General <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Attorney</span></h2>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">Why did you choose this practice area? <span class="arrow">&#9660;</span></div><div class="qa"><p>Connect to a genuine interest or formative experience. Reference specific cases, coursework, or mentors.</p><div class="tip"><strong>Tip:</strong> Mention a specific moment that ignited your passion.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">How do you manage a heavy caseload? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe calendaring tools, task prioritization, and communication with partners about bandwidth.</p><div class="tip"><strong>Tip:</strong> Name specific tools like practice management software.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">Tell me about a difficult opposing counsel situation. <span class="arrow">&#9660;</span></div><div class="qa"><p>Use STAR. Focus on professionalism and de-escalation.</p><div class="tip"><strong>Tip:</strong> Never badmouth opposing counsel.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">What is your approach to business development? <span class="arrow">&#9660;</span></div><div class="qa"><p>Discuss networking, industry involvement, writing, and referral relationships.</p><div class="tip"><strong>Tip:</strong> Even juniors should show BD awareness.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">Describe a time you made an error on a case. <span class="arrow">&#9660;</span></div><div class="qa"><p>Choose a recoverable mistake. Walk through what happened and safeguards you added.</p><div class="tip"><strong>Tip:</strong> Firms value accountability.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">Why are you looking to leave your current firm? <span class="arrow">&#9660;</span></div><div class="qa"><p>Frame around what you are moving toward: growth, alignment, culture.</p><div class="tip"><strong>Tip:</strong> Never speak negatively about your current employer.</div></div></div>
-</div>
-<div id="qa-insurance-defense" class="cs"><button class="bb" onclick="hideQA()">&larr; Back to Positions</button>
-<div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem">Insurance <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Defense</span></h2>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">What is your experience defending carriers and insureds? <span class="arrow">&#9660;</span></div><div class="qa"><p>Detail carrier types, coverage lines, and your litigation lifecycle role.</p><div class="tip"><strong>Tip:</strong> Name carrier clients if permitted.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle carrier billing guidelines? <span class="arrow">&#9660;</span></div><div class="qa"><p>Discuss rate caps, task-based billing, and budget management.</p><div class="tip"><strong>Tip:</strong> Show you understand cost-efficient defense.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your coverage analysis experience. <span class="arrow">&#9660;</span></div><div class="qa"><p>Walk through policy review, coverage issues, and ROR letters.</p><div class="tip"><strong>Tip:</strong> Dual coverage/defense perspective is a strength.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">How do you evaluate early resolution vs. trial? <span class="arrow">&#9660;</span></div><div class="qa"><p>Explain liability exposure, damages, costs, limits, and risk appetite analysis.</p><div class="tip"><strong>Tip:</strong> Think total cost of defense, not just win/loss.</div></div></div>
-  <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you manage the tripartite relationship between carrier, insured, and counsel? <span class="arrow">▼</span></div><div class="qa"><p>Explain how you keep the insured informed, manage conflicts between insured and carrier interests, and maintain ethical duties to both parties throughout the litigation.</p><div class="tip"><strong>Tip:</strong> Mention Cumis counsel situations if you have that experience — it shows sophisticated understanding of insurance defense ethics.</div></div></div>
-  <div class="qi"><div class="qq" onclick="toggleQA(this)">What is your trial experience in insurance defense matters? <span class="arrow">▼</span></div><div class="qa"><p>Describe the number and types of trials, your role as lead or second chair, jurisdictions, and outcomes. Include arbitration and deposition experience as well.</p><div class="tip"><strong>Tip:</strong> If trial experience is limited, highlight strong motion practice and deposition skills as complementary strengths.</div></div></div>
-  <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you stay current with changes in insurance law and coverage trends? <span class="arrow">▼</span></div><div class="qa"><p>Reference DRI, FDCC, state defense bar publications, Westlaw alerts, and internal firm updates. Mention any articles or presentations you have produced on emerging issues.</p><div class="tip"><strong>Tip:</strong> Carriers want lawyers who proactively educate them on emerging risks, not just react to claims as they come in.</div></div></div>
-</div>
-<div id="qa-real-estate" class="cs"><button class="bb" onclick="hideQA()">&larr; Back to Positions</button>
-<div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem">Real Estate <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Attorney</span></h2>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">What types of real estate transactions have you handled? <span class="arrow">&#9660;</span></div><div class="qa"><p>Break down by type and deal size: acquisitions, leasing, financing, development.</p><div class="tip"><strong>Tip:</strong> Quantify. $50M+ carries weight.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">How do you approach due diligence? <span class="arrow">&#9660;</span></div><div class="qa"><p>Title, survey, environmental, zoning, lease abstracts, estoppels.</p><div class="tip"><strong>Tip:</strong> Show systematic thoroughness.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">Describe a deal that hit a major obstacle. <span class="arrow">&#9660;</span></div><div class="qa"><p>Use STAR. Show creative problem-solving.</p><div class="tip"><strong>Tip:</strong> Partners want solution-finders.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle title issues and survey defects discovered during closing? <span class="arrow">&#9660;</span></div><div class="qa"><p>Walk through your process for clearing title exceptions: negotiating endorsements, obtaining gap indemnities, resolving survey defects, and working with title companies under tight timelines.</p><div class="tip"><strong>Tip:</strong> Show you can problem-solve at the closing table. Deals fall apart over title issues — firms want attorneys who can clear them fast.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your experience with commercial lease negotiations. <span class="arrow">&#9660;</span></div><div class="qa"><p>Discuss landlord vs. tenant representation, key deal points (rent abatement, TI allowances, exclusivity clauses, termination rights), and how you balance leverage with deal preservation.</p><div class="tip"><strong>Tip:</strong> Mention lease types: NNN, gross, ground leases. Breadth across asset classes (office, retail, industrial) is a differentiator.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">How do you advise clients on zoning, land use, and entitlement matters? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe your experience with variance applications, conditional use permits, rezoning petitions, and working with municipalities. Explain how you manage client expectations through long approval timelines.</p><div class="tip"><strong>Tip:</strong> Entitlement experience is highly valued in development-focused practices. Show familiarity with local planning boards and approval processes.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">What is your experience with real estate finance and secured lending transactions? <span class="arrow">&#9660;</span></div><div class="qa"><p>Discuss construction loans, permanent financing, mezzanine debt, CMBS loans, and intercreditor agreements. Describe your role on lender-side vs. borrower-side deals and how you manage complex multi-party closings.</p><div class="tip"><strong>Tip:</strong> Lender-side experience is particularly marketable. If you have both sides, say so — it shows you understand the full transaction picture.</div></div></div>
-</div>
-<div id="qa-workers-comp" class="cs"><button class="bb" onclick="hideQA()">&larr; Back to Positions</button>
-<div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem">Workers' <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Comp</span></h2>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">Do you represent claimants, employers, or carriers? <span class="arrow">&#9660;</span></div><div class="qa"><p>State your side clearly. Mention caseload volume and injury types.</p><div class="tip"><strong>Tip:</strong> Workers' comp firms are side-specific.</div></div></div>
-  <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle title issues and survey defects discovered during closing? <span class="arrow">▼</span></div><div class="qa"><p>Walk through your process for clearing title exceptions: negotiating endorsements, obtaining gap indemnities, resolving survey defects, and working with title companies under tight timelines.</p><div class="tip"><strong>Tip:</strong> Show you can problem-solve at the closing table. Deals fall apart over title issues — firms want attorneys who can clear them fast.</div></div></div>
-  <div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your experience with commercial lease negotiations. <span class="arrow">▼</span></div><div class="qa"><p>Discuss landlord vs. tenant representation, key deal points (rent abatement, TI allowances, exclusivity clauses, termination rights), and how you balance leverage with deal preservation.</p><div class="tip"><strong>Tip:</strong> Mention lease types you handle: NNN, gross, ground leases. Breadth of experience across asset classes (office, retail, industrial) is a differentiator.</div></div></div>
-  <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you advise clients on zoning, land use, and entitlement matters? <span class="arrow">▼</span></div><div class="qa"><p>Describe your experience with variance applications, conditional use permits, rezoning petitions, and working with municipalities. Explain how you manage client expectations through long approval timelines.</p><div class="tip"><strong>Tip:</strong> Entitlement experience is highly valued in development-focused practices. Show familiarity with local planning boards and approval processes.</div></div></div>
-  <div class="qi"><div class="qq" onclick="toggleQA(this)">What is your experience with real estate finance and secured lending transactions? <span class="arrow">▼</span></div><div class="qa"><p>Discuss construction loans, permanent financing, mezzanine debt, CMBS loans, and intercreditor agreements. Describe your role on lender-side vs. borrower-side deals and how you manage complex multi-party closings.</p><div class="tip"><strong>Tip:</strong> Lender-side experience is particularly marketable. If you have both sides, say so — it shows you understand the full transaction picture.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle disputed claims? <span class="arrow">&#9660;</span></div><div class="qa"><p>Evidence gathering: medical records, witness statements, IME coordination.</p><div class="tip"><strong>Tip:</strong> Show administrative hearing knowledge.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">What is your MSA and settlement experience? <span class="arrow">&#9660;</span></div><div class="qa"><p>Discuss MSA allocations, CMS submissions, and structured settlements.</p><div class="tip"><strong>Tip:</strong> MSA knowledge is increasingly valuable.</div></div></div>
-  <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you manage independent medical examinations and medical evidence? <span class="arrow">▼</span></div><div class="qa"><p>Describe how you select and prepare IME physicians, challenge treating physician opinions, use vocational experts, and handle medical records review to build or defend against permanent disability claims.</p><div class="tip"><strong>Tip:</strong> Strong IME management can change the value of a case significantly. Show you have a reliable network of qualified medical examiners.</div></div></div>
-  <div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your experience with permanent disability ratings and apportionment. <span class="arrow">▼</span></div><div class="qa"><p>Explain how you use AMA Guides or state-specific rating systems, challenge inflated permanent disability ratings, argue apportionment to pre-existing conditions, and negotiate final awards at the board level.</p><div class="tip"><strong>Tip:</strong> Apportionment arguments can dramatically reduce employer/carrier exposure. Show you actively pursue them rather than accepting claimant ratings at face value.</div></div></div>
-  <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle subrogation and third-party claims in workers' comp matters? <span class="arrow">▼</span></div><div class="qa"><p>Describe how you identify third-party liability (products, premises, motor vehicle), coordinate with civil litigators, assert employer/carrier liens, and maximize recovery to offset claim costs.</p><div class="tip"><strong>Tip:</strong> Subrogation recovery directly reduces net claim costs. Employers and carriers value attorneys who proactively identify and pursue these opportunities.</div></div></div>
-  <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you advise employers on return-to-work programs and light duty compliance? <span class="arrow">▼</span></div><div class="qa"><p>Explain how you help employers structure modified duty offers, ensure FMLA/ADA compliance when injuries overlap, document good-faith efforts to accommodate, and defend against retaliation claims.</p><div class="tip"><strong>Tip:</strong> Return-to-work programs reduce indemnity costs substantially. Advising proactively on compliance, not just litigating claims, makes you far more valuable to employer clients.</div></div></div>
-</div>
-<div id="qa-family-law" class="cs"><button class="bb" onclick="hideQA()">&larr; Back to Positions</button>
-<div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem">Family <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Law</span></h2>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle high-conflict custody disputes? <span class="arrow">&#9660;</span></div><div class="qa"><p>Discuss managing emotional clients, GALs, and best-interests evidence.</p><div class="tip"><strong>Tip:</strong> Demonstrate emotional intelligence.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">What is your experience with complex asset division? <span class="arrow">&#9660;</span></div><div class="qa"><p>Business valuations, QDROs, stock options, forensic accountants.</p><div class="tip"><strong>Tip:</strong> Show financial literacy.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">How do you approach settlement negotiations? <span class="arrow">&#9660;</span></div><div class="qa"><p>Mediation experience, collaborative law, realistic outcome preparation.</p><div class="tip"><strong>Tip:</strong> Courts favor settlement. Show negotiation skill.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle domestic violence or restraining order situations? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe your experience with emergency protective orders, DVRO hearings, and safety planning for clients. Discuss how you document evidence, coordinate with law enforcement, and advise clients on custody implications when domestic violence is a factor.</p><div class="tip"><strong>Tip:</strong> Show you understand both the legal process and the emotional weight. Firms want attorneys who can act quickly while keeping clients grounded in the legal realities.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">How do you approach parental relocation disputes? <span class="arrow">&#9660;</span></div><div class="qa"><p>Explain the legal standard in your jurisdiction for relocation, how you build or oppose a relocation petition, and how you handle best-interests factors such as distance, school continuity, and the non-relocating parent's relationship with the child.</p><div class="tip"><strong>Tip:</strong> Relocation cases are emotionally charged and legally complex. Show you understand both the statutory framework and the practical impact on parenting time schedules.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your experience with guardianship and adoption matters. <span class="arrow">&#9660;</span></div><div class="qa"><p>Discuss the types of guardianships you have handled (minor, adult, emergency) and any adoption experience (stepparent, private, agency, international). Describe the court process, home study coordination, and how you counsel families through these proceedings.</p><div class="tip"><strong>Tip:</strong> Many family law practices include guardianship and adoption. Demonstrating breadth across these matters shows you can serve the full spectrum of family law clients.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">How do you advise clients on post-decree modifications and enforcement? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe your experience with motions to modify custody, support, or parenting time based on substantial change in circumstances. Discuss how you enforce orders through contempt proceedings, wage garnishment, or license suspension, and how you advise clients on when modification is worth pursuing versus accepting the current order.</p><div class="tip"><strong>Tip:</strong> Post-decree work is a steady revenue driver for family law firms. Show you are comfortable handling both the initial decree and the years of follow-on work that often follows.</div></div></div></div></div></div>
-</div>
-<div id="qa-corporate" class="cs"><button class="bb" onclick="hideQA()">&larr; Back to Positions</button>
-<div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem">Corporate / <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Transactional</span></h2>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">What transactions have you worked on? <span class="arrow">&#9660;</span></div><div class="qa"><p>M&amp;A, PE, VC, general corporate. Specify deal sizes and your responsibility level.</p><div class="tip"><strong>Tip:</strong> Be honest about your role. Credibility matters.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">How do you manage multiple closings? <span class="arrow">&#9660;</span></div><div class="qa"><p>Closing checklists, signature pages, escrow coordination.</p><div class="tip"><strong>Tip:</strong> Show you are organized under pressure.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">Walk me through negotiating a purchase agreement provision. <span class="arrow">&#9660;</span></div><div class="qa"><p>Pick one you know: indemnification, reps, earnouts. Explain risk allocation.</p><div class="tip"><strong>Tip:</strong> Pick something you have actually negotiated.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle due diligence in M&A transactions? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe how you organize and manage due diligence workstreams, coordinate with client teams and specialists (tax, IP, employment), identify material risks, and summarize findings for deal principals. Discuss your experience with data room management and diligence memo drafting.</p><div class="tip"><strong>Tip:</strong> Due diligence efficiency separates strong transactional associates from average ones. Show you can run a workstream, not just participate in one.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your experience with representations, warranties, and indemnification provisions. <span class="arrow">&#9660;</span></div><div class="qa"><p>Explain how you negotiate the scope of reps and warranties, survival periods, materiality qualifiers, knowledge qualifiers, and indemnification baskets and caps. Describe how you advise clients on risk allocation and when to push back on buyer or seller requests.</p><div class="tip"><strong>Tip:</strong> R&W negotiation is core transactional work. Be ready to explain specific provisions you have negotiated and the business rationale behind your positions.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">What is your experience with private equity or venture capital transactions? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe the types of PE or VC transactions you have handled: LBOs, growth equity, recapitalizations, or early-stage financings. Discuss your experience with management equity plans, preferred stock terms, board governance, and working with sponsor clients under tight timelines.</p><div class="tip"><strong>Tip:</strong> PE and VC clients are demanding and repeat buyers of legal services. Showing comfort with sponsor dynamics and speed-to-close expectations is a major differentiator.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">How do you manage client communication and deal timelines under pressure? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe how you keep deal teams aligned, manage expectations with clients and opposing counsel, track open issues lists, and push deals to close when momentum stalls. Discuss how you handle competing closings and communicate bandwidth limitations to senior attorneys.</p><div class="tip"><strong>Tip:</strong> Deals die from poor communication as often as from legal issues. Show you are a proactive communicator who keeps everyone moving toward the finish line.</div></div></div></div></div></div>
-</div>
-<div id="qa-paralegal" class="cs"><button class="bb" onclick="hideQA()">&larr; Back to Positions</button>
-<div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem"><span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Paralegal</span></h2>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">What types of cases have you supported? <span class="arrow">&#9660;</span></div><div class="qa"><p>Drafting discovery, document review, depositions, motions, case calendars.</p><div class="tip"><strong>Tip:</strong> Be specific about volume and complexity.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">How do you prioritize when multiple attorneys need help? <span class="arrow">&#9660;</span></div><div class="qa"><p>Check deadlines, distinguish court dates from internal, communicate bandwidth.</p><div class="tip"><strong>Tip:</strong> Be proactive, not reactive.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">What legal software are you proficient in? <span class="arrow">&#9660;</span></div><div class="qa"><p>Westlaw, LexisNexis, Relativity, NetDocuments, Clio, iManage.</p><div class="tip"><strong>Tip:</strong> If unfamiliar with a tool, show you learn quickly.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your experience drafting and responding to discovery. <span class="arrow">&#9660;</span></div><div class="qa"><p>Walk through your experience preparing interrogatories, requests for production, requests for admission, and responses. Describe how you organize document productions, apply privilege logs, and coordinate with vendors for large-scale document review projects.</p><div class="tip"><strong>Tip:</strong> Discovery is where paralegals prove their value. Show you can manage the full lifecycle, not just hand documents to attorneys.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">How have you supported attorneys during depositions and trial preparation? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe your role in scheduling depositions, preparing deposition binders, summarizing transcripts, organizing trial exhibits, preparing witness files, and coordinating logistics. Discuss any experience assisting at trial as a second chair support resource.</p><div class="tip"><strong>Tip:</strong> Paralegals who can run a trial prep room are extremely valuable. Show you understand the entire deposition and trial workflow from scheduling through post-trial tasks.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">How do you maintain accuracy when working on high-volume or repetitive tasks? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe the quality-control habits you use: checklists, double-verification on dates and case numbers, peer review, and systematic file organization. Use a specific example where your attention to detail caught a critical error before it became a problem.</p><div class="tip"><strong>Tip:</strong> Accuracy is the top trait firms look for in paralegals. Give a concrete story, not just a general answer about being detail-oriented.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">Tell me about a time you identified an issue an attorney had missed. <span class="arrow">&#9660;</span></div><div class="qa"><p>Use STAR. Describe the situation, how you identified the issue (a missed deadline, a conflicting date, an incorrect party name, a gap in a document), how you raised it professionally, and the outcome. Focus on how you communicate concerns without overstepping your role.</p><div class="tip"><strong>Tip:</strong> This question tests both competence and professional judgment. Firms want paralegals who are sharp enough to catch errors and confident enough to speak up — without creating friction with attorneys.</div></div></div></div></div></div>
-</div>
-<div id="qa-legal-assistant" class="cs"><button class="bb" onclick="hideQA()">&larr; Back to Positions</button>
-<div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem">Legal <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Assistant</span></h2>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">What administrative and legal tasks are you experienced with? <span class="arrow">&#9660;</span></div><div class="qa"><p>Calendar management, correspondence, filing, client intake, expenses.</p><div class="tip"><strong>Tip:</strong> Show range across admin and substantive work.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle confidential information? <span class="arrow">&#9660;</span></div><div class="qa"><p>Attorney-client privilege, secure handling, data security practices.</p><div class="tip"><strong>Tip:</strong> Mention locked workstations, encrypted email, secure shredding.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">How do you support a busy attorney when unexpected urgent work comes in? <span class="arrow">&#9660;</span></div><div class="qa"><p>Use STAR. Describe a time when a rush task disrupted your planned day. Walk through how you reprioritized, communicated any impact on other deadlines, and ensured both the urgent and standing work got completed. Show grace under pressure.</p><div class="tip"><strong>Tip:</strong> Attorneys value assistants who adapt without drama. Show that you stay calm, solve the problem, and communicate proactively rather than waiting to be told what to drop.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your experience with client intake and managing client communications. <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe how you handle initial client contact, gather information for new matters, set up files, and manage ongoing client communication on behalf of attorneys. Discuss how you balance being responsive to clients while keeping attorneys appropriately in the loop.</p><div class="tip"><strong>Tip:</strong> Client intake sets the tone for the entire relationship. Show you understand the importance of a professional, organized first impression and know when to escalate to the attorney versus handle independently.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">What experience do you have with billing, timekeeping, and expense tracking? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe your experience entering attorney time, preparing draft invoices, tracking disbursements, and following up on accounts receivable. Mention any billing platforms you have used (Aderant, Juris, Tabs3, QuickBooks, or Elite) and how you ensure accuracy in billing entries.</p><div class="tip"><strong>Tip:</strong> Billing accuracy directly affects firm revenue. Showing experience in billing and collections, even at an entry level, is a significant differentiator for legal assistant candidates.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle situations where you are asked to do something you are unsure about? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe your approach to asking clarifying questions, confirming instructions before proceeding, and knowing when to escalate uncertainty rather than guess. Give a specific example of a time you paused on a task to verify and explain how that decision helped avoid a mistake.</p><div class="tip"><strong>Tip:</strong> Legal work has zero tolerance for assumptions. Firms want assistants who ask smart questions and confirm before acting, not ones who barrel through uncertain tasks and create problems to fix later.</div></div></div></div></div></div>
-</div>
-<div id="qa-legal-secretary" class="cs"><button class="bb" onclick="hideQA()">&larr; Back to Positions</button>
-<div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem">Legal <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Secretary</span></h2>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">What document management systems do you know? <span class="arrow">&#9660;</span></div><div class="qa"><p>iManage, NetDocuments, Worldox. TOA, TOC, blue-backing, court standards.</p><div class="tip"><strong>Tip:</strong> Formatting precision matters. Show court-specific knowledge.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">How do you manage deadlines for multiple attorneys? <span class="arrow">&#9660;</span></div><div class="qa"><p>Docketing approach, reminder systems, proactive confirmation.</p><div class="tip"><strong>Tip:</strong> A missed deadline can end a case. Show safeguards.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your experience with court filing procedures and e-filing systems. <span class="arrow">&#9660;</span></div><div class="qa"><p>Walk through your experience with local, state, and federal court filing requirements. Describe the e-filing platforms you have used (CM/ECF, Tyler File & Serve, Odyssey, CourtDrive), how you verify filing confirmation, and how you handle rejected filings or technical issues close to a deadline.</p><div class="tip"><strong>Tip:</strong> Court filing errors can have serious consequences. Show you double-check every submission, understand the specific requirements of each court, and have a protocol for deadline days.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">How do you prepare and format legal documents for attorney review and court submission? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe your proficiency with legal document formatting: tables of authority (TOA), tables of contents (TOC), blue-backing, exhibit tabs, signature blocks, and court-specific formatting rules. Explain how you proofread for consistency in citations, headings, and page numbering before a document goes out.</p><div class="tip"><strong>Tip:</strong> Formatting precision is a core legal secretary skill. Show you understand that a brief filed with incorrect formatting or citation errors reflects on the firm, and that you take responsibility for getting it right before it leaves your desk.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">How do you manage attorney travel, scheduling, and meeting coordination? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe your experience managing complex calendars, booking travel, scheduling depositions and hearings across multiple time zones, coordinating conference calls, and preparing meeting materials. Discuss how you anticipate conflicts and keep attorneys informed of schedule changes.</p><div class="tip"><strong>Tip:</strong> Attorneys rely on their secretaries to own the calendar completely. Show you are organized, anticipate needs before being asked, and protect attorney time proactively.</div></div></div><div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle communication with opposing counsel, courts, and clients? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe how you draft professional correspondence on behalf of attorneys, manage incoming calls and emails from clients and opposing counsel, and handle sensitive information with discretion. Discuss how you filter communications, knowing what to handle independently versus what requires attorney attention immediately.</p><div class="tip"><strong>Tip:</strong> Legal secretaries are the front line of communication for a practice. Show you project professionalism, understand confidentiality, and know how to manage client relationships without overstepping your authority.</div></div></div></div></div></div>
-</div>
-<div id="qa-finance-general" class="cs"><button class="bb" onclick="hideQA()">&larr; Back to Positions</button>
-<div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem">General <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Finance</span></h2>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">How do you approach risk assessment? <span class="arrow">&#9660;</span></div><div class="qa"><p>Data review, stakeholder consultation, scenario modeling.</p><div class="tip"><strong>Tip:</strong> Balance thoroughness with practicality.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">Describe finding a discrepancy in financial data. <span class="arrow">&#9660;</span></div><div class="qa"><p>Use STAR: what you found, impact, investigation, controls recommended.</p><div class="tip"><strong>Tip:</strong> Prove attention to detail with a real story.</div></div></div>
-</div>
-<div id="qa-compliance" class="cs"><button class="bb" onclick="hideQA()">&larr; Back to Positions</button>
-<div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem"><span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Compliance</span></h2>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">Walk me through your regulatory compliance experience. <span class="arrow">&#9660;</span></div><div class="qa"><p>SEC, FINRA, SOX, AML/KYC. Your role in audits and policy implementation.</p><div class="tip"><strong>Tip:</strong> Reference regulations by name.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">How do you balance business objectives with compliance? <span class="arrow">&#9660;</span></div><div class="qa"><p>Work with business teams to find compliant paths forward.</p><div class="tip"><strong>Tip:</strong> Be an enabler, not a blocker.</div></div></div>
-</div>
-<div id="qa-accounting" class="cs"><button class="bb" onclick="hideQA()">&larr; Back to Positions</button>
-<div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem"><span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Accounting</span></h2>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">Walk me through your month-end close process. <span class="arrow">&#9660;</span></div><div class="qa"><p>Journal entries, accruals, reconciliations, variance analysis, timelines.</p><div class="tip"><strong>Tip:</strong> Mention how you improved close speed or accuracy.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">What accounting software are you experienced with? <span class="arrow">&#9660;</span></div><div class="qa"><p>QuickBooks, Sage, NetSuite, SAP, Oracle. Advanced Excel, automation.</p><div class="tip"><strong>Tip:</strong> Built automated reports? That differentiates you.</div></div></div>
-</div>
-<div id="qa-eng-mechanical" class="cs"><button class="bb" onclick="hideQA()">&larr; Back to Positions</button>
-<div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem">Mechanical <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Engineering</span></h2>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">Describe a complex mechanical system you designed or improved. <span class="arrow">&#9660;</span></div><div class="qa"><p>Use STAR. Walk through requirements, constraints, your design decisions, and the outcome.</p><div class="tip"><strong>Tip:</strong> Quantify performance improvements (efficiency %, cost savings, weight reduction).</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">What CAD and simulation tools are you proficient in? <span class="arrow">&#9660;</span></div><div class="qa"><p>SolidWorks, AutoCAD, CATIA, ANSYS, MATLAB. Describe real projects where you used them.</p><div class="tip"><strong>Tip:</strong> Mention FEA or CFD experience if applicable.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">How do you approach failure analysis? <span class="arrow">&#9660;</span></div><div class="qa"><p>Root cause analysis process: visual inspection, testing, material review, stress analysis.</p><div class="tip"><strong>Tip:</strong> Show systematic thinking and cross-functional collaboration.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">Tell me about a time a project was behind schedule. <span class="arrow">&#9660;</span></div><div class="qa"><p>Use STAR. Focus on how you identified the delay, communicated it, and recovered.</p><div class="tip"><strong>Tip:</strong> Show ownership and proactive communication.</div></div></div>
-</div>
-<div id="qa-eng-civil" class="cs"><button class="bb" onclick="hideQA()">&larr; Back to Positions</button>
-<div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem">Civil <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Engineering</span></h2>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">What types of civil projects have you worked on? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe project types: roads, bridges, drainage, site development. Mention scale and your role.</p><div class="tip"><strong>Tip:</strong> Reference permit processes, municipal codes, and agency coordination.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle site constraints and environmental considerations? <span class="arrow">&#9660;</span></div><div class="qa"><p>Wetlands, floodplains, soil conditions, right-of-way. Describe how you navigated them on a real project.</p><div class="tip"><strong>Tip:</strong> Mention NEPA, NPDES, or local environmental review experience.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your experience with AutoCAD Civil 3D or similar tools. <span class="arrow">&#9660;</span></div><div class="qa"><p>Grading, alignment, profiles, cross-sections. Describe real deliverables you produced.</p><div class="tip"><strong>Tip:</strong> Mention GIS integration if applicable.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">How do you coordinate with contractors during construction? <span class="arrow">&#9660;</span></div><div class="qa"><p>RFI process, submittals, site visits, punch lists, change order management.</p><div class="tip"><strong>Tip:</strong> Show you understand both design and field execution.</div></div></div>
-</div>
-<div id="qa-eng-electrical" class="cs"><button class="bb" onclick="hideQA()">&larr; Back to Positions</button>
-<div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem">Electrical <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Engineering</span></h2>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">Describe a power systems or controls project you led or contributed to. <span class="arrow">&#9660;</span></div><div class="qa"><p>Use STAR. Describe the system, your design responsibilities, and measurable outcomes.</p><div class="tip"><strong>Tip:</strong> Mention relevant codes: NEC, IEEE, NFPA 70E.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">What electrical design software are you experienced with? <span class="arrow">&#9660;</span></div><div class="qa"><p>AutoCAD Electrical, ETAP, SKM, MATLAB/Simulink, EPLAN, Revit MEP.</p><div class="tip"><strong>Tip:</strong> Be specific about what you designed, not just what you know.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">How do you approach electrical safety and compliance? <span class="arrow">&#9660;</span></div><div class="qa"><p>Arc flash studies, LOTO procedures, equipment ratings, code compliance review.</p><div class="tip"><strong>Tip:</strong> Mention experience with AHJ coordination if relevant.</div></div></div>
-</div>
-<div id="qa-eng-structural" class="cs"><button class="bb" onclick="hideQA()">&larr; Back to Positions</button>
-<div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem">Structural <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Engineering</span></h2>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">What types of structures have you designed? <span class="arrow">&#9660;</span></div><div class="qa"><p>Steel, concrete, masonry, wood. Describe building types, loads, and your design role.</p><div class="tip"><strong>Tip:</strong> Reference IBC, ASCE 7, ACI 318, AISC as applicable.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">How do you handle seismic or wind load design? <span class="arrow">&#9660;</span></div><div class="qa"><p>Lateral force resisting systems, load combinations, drift limits, diaphragm design.</p><div class="tip"><strong>Tip:</strong> Mention specific projects where lateral loads drove design decisions.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">Describe your structural analysis software experience. <span class="arrow">&#9660;</span></div><div class="qa"><p>ETABS, SAP2000, RISA, RAM, Revit Structure. Describe models you built and validated.</p><div class="tip"><strong>Tip:</strong> Mention hand calculation verification — firms value engineers who check software output.</div></div></div>
-</div>
-<div id="qa-eng-general" class="cs"><button class="bb" onclick="hideQA()">&larr; Back to Positions</button>
-<div class="divider"></div><h2 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem">General <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Engineering</span></h2>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">How do you manage competing priorities on a project? <span class="arrow">&#9660;</span></div><div class="qa"><p>Describe your prioritization method: deadline-driven, risk-based, stakeholder input.</p><div class="tip"><strong>Tip:</strong> Use a real example with measurable outcomes.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">Tell me about a time you solved a problem no one else had figured out. <span class="arrow">&#9660;</span></div><div class="qa"><p>Use STAR. Show technical creativity and persistence.</p><div class="tip"><strong>Tip:</strong> This is a signature story — prepare it carefully.</div></div></div>
-<div class="qi"><div class="qq" onclick="toggleQA(this)">How do you stay current with engineering codes and technologies? <span class="arrow">&#9660;</span></div><div class="qa"><p>Professional memberships (ASCE, ASME, IEEE), continuing ed, internal lunch-and-learns, code cycle updates.</p><div class="tip"><strong>Tip:</strong> Mention a recent change you implemented at work.</div></div></div>
-</div>
-</div></div></div>
-<!-- STAR PAGE -->
+
+<!-- STAR METHOD PAGE -->
 <div id="page-star" class="page">
-<div class="sw">
-<h2>The <span>STAR</span> Method</h2>
-<div class="divider"></div>
-<p class="subtitle">A proven framework for answering behavioral interview questions with clarity and impact.</p>
-<div class="sg">
-<div class="sc"><div class="lt">S</div><h3>Situation</h3><p>Set the scene. Describe the context or challenge you faced.</p></div>
-<div class="sc"><div class="lt">T</div><h3>Task</h3><p>Explain your specific responsibility or objective.</p></div>
-<div class="sc"><div class="lt">A</div><h3>Action</h3><p>Detail the steps you personally took.</p></div>
-<div class="sc"><div class="lt">R</div><h3>Result</h3><p>Share the outcome. Quantify it if possible.</p></div>
+  <div class="sw">
+    <h2>The <span>STAR</span> Method</h2>
+    <div class="divider"></div>
+    <p class="subtitle">A proven framework for answering behavioral interview questions with clarity and impact.</p>
+    <div class="sg">
+      <div class="sc"><div class="lt">S</div><h3>Situation</h3><p>Set the scene. Describe the context or challenge you faced.</p></div>
+      <div class="sc"><div class="lt">T</div><h3>Task</h3><p>Explain your specific responsibility or objective.</p></div>
+      <div class="sc"><div class="lt">A</div><h3>Action</h3><p>Detail the steps you personally took.</p></div>
+      <div class="sc"><div class="lt">R</div><h3>Result</h3><p>Share the outcome. Quantify it if possible.</p></div>
+    </div>
+    <div class="se">
+      <h3>Example: Attorney Using STAR</h3>
+      <div class="step"><strong>S:</strong> A high-value client threatened to leave after a billing dispute during complex commercial litigation.</div>
+      <div class="step"><strong>T:</strong> As the associate managing the account, I needed to resolve the dispute and retain the client.</div>
+      <div class="step"><strong>A:</strong> I reviewed every line item with the client, prepared a revised summary, coordinated with the partner on a fair adjustment, and created a billing communication protocol.</div>
+      <div class="step"><strong>R:</strong> The client stayed, approved the invoice within 48 hours, and expanded our engagement by two matters worth $200K+ annually.</div>
+    </div>
+  </div>
 </div>
-<div class="se">
-<h3>Example: Attorney Using STAR</h3>
-<div class="step"><strong>S:</strong> A high-value client threatened to leave after a billing dispute during complex commercial litigation.</div>
-<div class="step"><strong>T:</strong> As the associate managing the account, I needed to resolve the dispute and retain the client.</div>
-<div class="step"><strong>A:</strong> I reviewed every line item with the client, prepared a revised summary, coordinated with the partner on a fair adjustment, and created a billing communication protocol.</div>
-<div class="step"><strong>R:</strong> The client stayed, approved the invoice within 48 hours, and expanded our engagement by two matters worth $200K+ annually.</div>
-</div>
-</div>
-</div>
+
 <!-- INTERVIEW TIPS PAGE -->
 <div id="page-tips" class="page">
-<div class="sw">
-<h2>Interview <span>Tips</span></h2>
-<div class="divider"></div>
-<p class="subtitle">Actionable advice to help you walk in prepared and walk out confident.</p>
-<div class="tg">
-<div class="tc"><div class="ti">&#128269;</div><h3>Research the Employer</h3><p>Know the firm's practice areas, recent wins, key clients, and culture. Check their website, LinkedIn, and recent news before your interview.</p></div>
-<div class="tc"><div class="ti">&#128084;</div><h3>Dress Professionally</h3><p>Business professional is the standard for legal, financial, and engineering interviews. When in doubt, overdress. First impressions are formed in seconds.</p></div>
-<div class="tc"><div class="ti">&#128172;</div><h3>Prepare Your Stories</h3><p>Have 5-7 STAR stories ready that highlight leadership, problem-solving, teamwork, and handling adversity. Most behavioral questions fit one of these themes.</p></div>
-<div class="tc"><div class="ti">&#9997;</div><h3>Prepare Smart Questions</h3><p>Have 3-5 thoughtful questions about team structure, growth opportunities, what success looks like in 90 days, and the firm's direction. Avoid asking about salary first.</p></div>
-<div class="tc"><div class="ti">&#127758;</div><h3>Know Your Resume Cold</h3><p>Be ready to speak fluently about every bullet on your resume. Interviewers follow up on specifics. Vague answers raise red flags.</p></div>
-<div class="tc"><div class="ti">&#9200;</div><h3>Arrive Early</h3><p>10-15 minutes early in person. For virtual interviews, test your audio, video, and internet 30 minutes before. Have a backup plan if tech fails.</p></div>
-<div class="tc"><div class="ti">&#129300;</div><h3>Read the Room</h3><p>Mirror the interviewer's energy. If they are formal, stay formal. If they are conversational, relax slightly. Strong emotional intelligence sets candidates apart.</p></div>
-<div class="tc"><div class="ti">&#128200;</div><h3>Quantify Everything</h3><p>Whenever possible, use numbers. &ldquo;Managed a caseload of 80+ active matters&rdquo; is far stronger than &ldquo;handled many cases.&rdquo; Numbers make stories memorable and credible.</p></div>
-<div class="tc"><div class="ti">&#128226;</div><h3>Follow Up Within 24 Hours</h3><p>Send a personalized thank-you email to each interviewer. Reference something specific from the conversation. It reinforces your interest and professionalism.</p></div>
-<div class="tc"><div class="ti">&#127775;</div><h3>Show Genuine Enthusiasm</h3><p>Firms hire people who want to be there. Express specific excitement about the role, the team, or the firm's work. Enthusiasm is contagious and memorable.</p></div>
-<div class="tc"><div class="ti">&#128683;</div><h3>Avoid These Mistakes</h3><p>Never speak negatively about former employers. Never check your phone. Never give one-word answers. Never lie about your experience — it always comes out.</p></div>
-<div class="tc"><div class="ti">&#129309;</div><h3>Negotiate Thoughtfully</h3><p>When an offer comes, take 24-48 hours before responding. Research market rates. Counter professionally and with a rationale — most firms expect it.</p></div>
+  <div class="sw">
+    <h2>Interview <span>Tips</span></h2>
+    <div class="divider"></div>
+    <p class="subtitle">Actionable advice to help you walk in prepared and walk out confident.</p>
+    <div class="tg">
+      <div class="tc"><div class="ti">&#128269;</div><h3>Research the Employer</h3><p>Know the firm's practice areas, recent wins, key clients, and culture. Check their website, LinkedIn, and recent news before your interview.</p></div>
+      <div class="tc"><div class="ti">&#128084;</div><h3>Dress Professionally</h3><p>Business professional is the standard for legal, financial, and engineering interviews. When in doubt, overdress. First impressions are formed in seconds.</p></div>
+      <div class="tc"><div class="ti">&#128172;</div><h3>Prepare Your Stories</h3><p>Have 5-7 STAR stories ready that highlight leadership, problem-solving, teamwork, and handling adversity. Most behavioral questions fit one of these themes.</p></div>
+      <div class="tc"><div class="ti">&#9997;</div><h3>Prepare Smart Questions</h3><p>Have 3-5 thoughtful questions about team structure, growth opportunities, what success looks like in 90 days, and the firm's direction. Avoid asking about salary first.</p></div>
+      <div class="tc"><div class="ti">&#127758;</div><h3>Know Your Resume Cold</h3><p>Be ready to speak fluently about every bullet on your resume. Interviewers follow up on specifics. Vague answers raise red flags.</p></div>
+      <div class="tc"><div class="ti">&#9200;</div><h3>Arrive Early</h3><p>10-15 minutes early in person. For virtual interviews, test your audio, video, and internet 30 minutes before. Have a backup plan if tech fails.</p></div>
+      <div class="tc"><div class="ti">&#129300;</div><h3>Read the Room</h3><p>Mirror the interviewer's energy. If they are formal, stay formal. If they are conversational, relax slightly. Strong emotional intelligence sets candidates apart.</p></div>
+      <div class="tc"><div class="ti">&#128200;</div><h3>Quantify Everything</h3><p>Whenever possible, use numbers. "Managed a caseload of 80+ active matters" is far stronger than "handled many cases." Numbers make stories memorable and credible.</p></div>
+      <div class="tc"><div class="ti">&#128226;</div><h3>Follow Up Within 24 Hours</h3><p>Send a personalized thank-you email to each interviewer. Reference something specific from the conversation. It reinforces your interest and professionalism.</p></div>
+      <div class="tc"><div class="ti">&#127775;</div><h3>Show Genuine Enthusiasm</h3><p>Firms hire people who want to be there. Express specific excitement about the role, the team, or the firm's work. Enthusiasm is contagious and memorable.</p></div>
+      <div class="tc"><div class="ti">&#128683;</div><h3>Avoid These Mistakes</h3><p>Never speak negatively about former employers. Never check your phone. Never give one-word answers. Never lie about your experience — it always comes out.</p></div>
+      <div class="tc"><div class="ti">&#129309;</div><h3>Negotiate Thoughtfully</h3><p>When an offer comes, take 24-48 hours before responding. Research market rates. Counter professionally and with a rationale — most firms expect it.</p></div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-<footer><strong>Interview Ready</strong> &mdash; Built to help candidates land the job.<br>&copy; 2025. All rights reserved.</footer>
+
+<footer>
+  <strong>Interview Ready</strong> — Built to help candidates land the job.<br/>
+  &copy; 2025. All rights reserved.
+</footer>
+
 <script>
 function showPage(id){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById('page-'+id).classList.add('active');
-document.querySelectorAll('.nav-item>a').forEach(a=>a.classList.remove('active'));
-var navEl=document.getElementById('nav-'+id);
-if(navEl)navEl.classList.add('active');
-document.querySelectorAll('.cs').forEach(s=>s.classList.remove('active'));
-var pg=document.getElementById('pos-grid');
-if(pg)pg.style.display='';
-window.scrollTo(0,0);
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.nav-item>a').forEach(a=>a.classList.remove('active'));
+  var navEl=document.getElementById('nav-'+id);
+  if(navEl)navEl.classList.add('active');
+  document.querySelectorAll('.cs').forEach(s=>s.classList.remove('active'));
+  var pg=document.getElementById('pos-grid');
+  if(pg)pg.style.display='';
+  window.scrollTo(0,0);
 }
 function showQA(id){
-showPage('positions');
-var pg=document.getElementById('pos-grid');
-if(pg)pg.style.display='none';
-document.querySelectorAll('.cs').forEach(s=>s.classList.remove('active'));
-var el=document.getElementById('qa-'+id);
-if(el)el.classList.add('active');
-window.scrollTo(0,0);
+  showPage('positions');
+  var pg=document.getElementById('pos-grid');
+  if(pg)pg.style.display='none';
+  document.querySelectorAll('.cs').forEach(s=>s.classList.remove('active'));
+  var el=document.getElementById('qa-'+id);
+  if(el)el.classList.add('active');
+  window.scrollTo(0,0);
 }
 function hideQA(){
-document.querySelectorAll('.cs').forEach(s=>s.classList.remove('active'));
-var pg=document.getElementById('pos-grid');
-if(pg)pg.style.display='';
-window.scrollTo(0,0);
+  document.querySelectorAll('.cs').forEach(s=>s.classList.remove('active'));
+  var pg=document.getElementById('pos-grid');
+  if(pg)pg.style.display='';
+  window.scrollTo(0,0);
 }
 function toggleQA(el){
-var a=el.nextElementSibling;
-if(a.classList.contains('open')){a.classList.remove('open');el.classList.remove('active');}
-else{a.classList.add('open');el.classList.add('active');}
+  var a=el.nextElementSibling;
+  if(a.classList.contains('open')){a.classList.remove('open');el.classList.remove('active');}
+  else{a.classList.add('open');el.classList.add('active');}
 }
 </script>
 </body>
