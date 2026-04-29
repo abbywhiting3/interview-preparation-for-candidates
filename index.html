@@ -220,3 +220,11 @@ footer{text-align:center;padding:3rem 2rem;border-top:1px solid var(--border);co
 <div class="qi"><div class="qq" onclick="toggleQA(this)">How do you advise on zoning and land use? <span class="arrow">&#9660;</span></div><div class="qa"><p>Variance applications, conditional use permits, rezoning, working with municipalities.</p><div class="tip"><strong>Tip:</strong> Entitlement experience is highly valued.</div></div></div>
 <div class="qi"><div class="qq" onclick="toggleQA(this)">What is your real estate finance experience? <span class="arrow">&#9660;</span></div><div class="qa"><p>Construction loans, permanent financing, mezzanine debt, CMBS, intercreditor agreements.</p><div class="tip"><strong>Tip:</strong> Lender-side experience is particularly marketable.</div></div></div>
 </div></div>
+<script>
+function showPage(p){document.querySelectorAll('.page').forEach(function(el){el.classList.remove('active')});var t=document.getElementById('page-'+p);if(t)t.classList.add('active');document.querySelectorAll('.nav-item>a').forEach(function(a){a.classList.remove('active')});var n=document.getElementById('nav-'+p);if(n)n.classList.add('active');var d=document.getElementById('positions-dropdown');if(d)d.classList.remove('open');document.querySelectorAll('.cs').forEach(function(e){e.style.display='none'});window.scrollTo(0,0);}
+function toggleDropdown(e){if(e){e.preventDefault();e.stopPropagation();}var d=document.getElementById('positions-dropdown');if(d)d.classList.toggle('open');}
+function showQA(id){document.querySelectorAll('.cs').forEach(function(e){e.style.display='none'});var t=document.getElementById('qa-'+id);if(t)t.style.display='block';var d=document.getElementById('positions-dropdown');if(d)d.classList.remove('open');window.scrollTo(0,0);}
+function hideQA(){document.querySelectorAll('.cs').forEach(function(e){e.style.display='none'});window.scrollTo(0,0);}
+function toggleQA(el){var qa=el.parentElement.querySelector('.qa');if(qa)qa.classList.toggle('open');var arrow=el.querySelector('.arrow');if(arrow)arrow.classList.toggle('rotated');}
+document.addEventListener('click',function(e){var d=document.getElementById('positions-dropdown');var n=document.getElementById('nav-positions');if(d&&n&&!d.contains(e.target)&&!n.contains(e.target)){d.classList.remove('open');}});
+</script>
